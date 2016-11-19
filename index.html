@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="src/materialize/css/materialize.min.css">
+	<link rel="stylesheet" href="src/materialize/fonts/material-design-icons/material-icons.css">
+	<script src="src/materialize/js/jquery.js"></script>
+	<script src="src/materialize/js/materialize.min.js"></script>
+	<title>Iniciar sesión | SGR</title>
+
+</head>
+<body class="grey lighten-2">
+	<div class="col m12 teal">
+  			<br>
+  			<br>
+  	</div>
+  	<div class="container">
+  		<div class="row">
+  			<div class="col m4 push-m4">
+  				<div class="card-panel white z-depth-4">	
+  					<div class="row">
+  						<h4 class="center">Iniciar sesión</h4>
+					    <div class="row">
+  							<div class="col m4 push-m4">
+  								<a href="registrar.html">
+  									<img class="responsive-img" src="src/img/logoitz.png">
+  								</a>
+  							</div>
+  						</div>
+					    <form class="col s12" action="controller/checkUser.php" enctype="multipart/form-data" method="POST">
+					     	<div class="row">
+					        	<div class="input-field col s12">
+					        		<i class="material-icons prefix">person</i>
+					          		<input id="usuario" type="text" class="validate" name="usuario">
+					          		<label for="usuario">Usuario</label>
+					        	</div>
+					      	</div>
+					      	<div class="row">
+					        	<div class="input-field col s12">
+					        		<i class="material-icons prefix">vpn_key</i>
+					          		<input id="password" type="password" class="validate" name="password">
+					          		<label for="password">Contraseña</label>
+					        	</div>
+					      	</div>
+					      	<button class="btn waves-effect waves-light right" type="submit" name="action">Accesar
+    							<i class="material-icons right">send</i>
+  							</button>
+					    </form>
+					    <div class="row">
+					      <div class="input-field col s12">
+					       	<a href="recuperar.html" class="right">Olvide mi contraseña</a>
+					      </div>
+					    </div>
+					</div>
+        		</div>
+  			</div>
+  		</div>
+  	</div>
+</body>
+</html>
