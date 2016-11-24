@@ -13,7 +13,6 @@ if (($_POST["usuario"] == '') or ( $_POST["password"] == '')) {
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
 	session_start();
-
 	$pass_encriptada1 = md5($password); //Encriptacion nivel 1
 	$pass_encriptada2 = crc32($pass_encriptada1); //Encriptacion nivel 1
 	$pass_encriptada3 = crypt($pass_encriptada2, "xtemp"); //Encriptacion nivel 2
@@ -43,5 +42,4 @@ if (($_POST["usuario"] == '') or ( $_POST["password"] == '')) {
 	}
 	mysql_close($link);
 }
-
 ?>

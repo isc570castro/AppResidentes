@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Proyectos | SGR</title>
+	<title>Residentes | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -27,8 +27,8 @@
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="../residentes/residentes.html"><i class="material-icons left">people</i>Residentes</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
+        		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
@@ -39,12 +39,12 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Proyectos</H3>
+			       	<H3 align="center">Residentes</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form>
+			       			<form action="../../controller/residentes/consultarResidente.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required>
+          							<input id="search" type="search" required name="nombreResidente">
           							<label for="search"><i class="material-icons">search</i></label>
           							<i class="material-icons">close</i>
         						</div>
@@ -60,58 +60,44 @@
 				    		<a href="modificar.html" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
 						</div>
 					</div>
+<?php
+include "../../model/conexion.php";
+$objConex = new Conexion();
+$link=$objConex->conectarse();
+$sql = mysql_query("SELECT * FROM residente;" , $link) or die(mysql_error());
+echo ' 
 					<div class="row">
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						          		<th>Numero de proyecto</th>
-						              	<th>Nombre del proyecto</th>
-						              	<th>Asesor externo</th>
-						              	<th>Asesor interno</th>
-						              	<th>Nombre de la empresa</th>
-						              	<th>Dueño de la empresa</th>
-						              	<th>Dirección de la empresa</th>
-						              	<th>Teléfono de la empresa</th>
-						              	<th>Concluido</th>
+						              	<th>No. Ctrl</th>
+						              	<th>Nombre</th>
+						              	<th>Direccion</th>
+						              	<th>Telefono</th>
+						              	<th>Semestre</th>
+						              	<th>Carrera</th>
+						              	<th>E-mail</th>
 						          	</tr>
 						        </thead>
 						        <tbody>
-						          	<tr>
-						          		<td>1</td>
-						            	<td>Seguridad web</td>
-						            	<td>Juan Jímenez</td>
-						            	<td>Leopoldo Ruíz</td>
-						            	<td>Kingut Inc.</td>
-						            	<td>Anastasio López</td>
-						            	<td>Calle Hurones #78</td>
-						            	<td>7-85-6678</td>
-						            	<td>Si</td>
-						          	</tr>
-						          	<tr>
-						          		<td>2</td>
-						            	<td>Resorteras nucleares</td>
-						            	<td>Fernando Ortiz</td>
-						            	<td>Carlos Rodríguez</td>
-						            	<td>Gorila Corp.</td>
-						            	<td>Maria Torres</td>
-						            	<td>Calle Mapaches #25</td>
-						            	<td>8-76-5432</td>
-						            	<td>No</td>
-						          	</tr>
-						          	<tr>
-						          		<td>3</td>
-						            	<td>Animación</td>
-						            	<td>Rebeca Lifano</td>
-						            	<td>Aquiles Esquivel</td>
-						            	<td>RootingApps</td>
-						            	<td>Edith Sagredo</td>
-						            	<td>Calle Perros #12</td>
-						            	<td>8-67-9876</td>
-						            	<td>Si</td>
-						          	</tr>
-						        </tbody>
-			      			</table>
+								<tr align="center">';
+								while ($rows = mysql_fetch_array($sql)){
+								echo '
+									<td> '.$rows['noControl'] .'</td>
+									<td> '.$rows['nombreResidente'] .'</td>
+									<td> '.$rows['direccion'] .'</td>
+									<td> '.$rows['telefono'] .'</td>
+									<td> '.$rows['semestre'] .'</td>
+     								<td> '.$rows['carrera'] .'</td>
+     								<td> '.$rows['correo'] .' </td>
+     							</tr>
+								';
+								}
+								echo '
+								<tbody>
+			      				</table>';
+?>
 						</div>
 					</div>
 			    </div>

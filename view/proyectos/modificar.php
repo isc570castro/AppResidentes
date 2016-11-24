@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Eliminar proyecto | SGR</title>
+	<title>Actualizar proyecto | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -27,7 +27,7 @@
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="../residentes/residentes.html"><i class="material-icons left">people</i>Residentes</a></li>
+        		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li class="active"><a href=""><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
@@ -35,21 +35,37 @@
       		</ul>
     	</div>
   	</nav>
+	<?php
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT nombreProyecto FROM proyecto" , $link) or die(mysql_error());				
+	
+	
+	?>
   	<div class="container">
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			    	<H3 align="center">Eliminar proyecto</H3>
+			    	<H3 align="center">Actualizar proyecto</H3>
 				  	<div class="row">
-					    <form class="col s12">
-					    	<h4><i class="material-icons left" style="font-size: 40px;">cancel</i>Eliminar</h4>
+					    <form class="col s12" action="editar.php" method="POST" enctype="multipart/form-data" name="frmModificar">
+					    	<h4><i class="material-icons left" style="font-size: 40px;">cached</i>Actualizar</h4>
 					    	<div class="divider"></div>
 					      	<div class="row">
 					      		<div class="col m2">
-					      			<h5>Proyecto</h5>
+					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate">
+						        <select name="nombreProyecto">
+	<?php					        	
+	while ($rows = mysql_fetch_array($sql)){   
+	?>
+      								<option value="<?php echo $rows['nombreProyecto']; ?>"><?php echo $rows['nombreProyecto']; ?></option>
+    <?php
+	}
+    ?>
+    							</select>
 					        	</div>
   							<a class="waves-effect waves-light btn red right" href="proyectos.html">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
@@ -60,4 +76,11 @@
 		</div>
   	</div>
 </body>
+<script>
+	
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            
+</script>
 </html>
