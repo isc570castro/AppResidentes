@@ -67,7 +67,7 @@
     ?>
     							</select>
 					        	</div>
-  							<a class="waves-effect waves-light btn red right" href="proyectos.html">Cancelar</a>
+  							<a class="waves-effect waves-light btn red right" href="proyectos.php">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
 					    </form>
 				 	 </div>

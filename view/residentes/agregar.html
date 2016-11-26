@@ -28,7 +28,7 @@
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
-        		<li><a href="../proyectos/proyectos.html"><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
@@ -49,16 +49,16 @@
 					      			<h5>Nombre completo</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="text" class="validate" name="nombre">
-						         	<label for="first_name">Nombre</label>
+						        	<input id="ab" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="nombre" required>
+						         	<label for="ab" data-error="Solo se aceptan letras">Nombre</label>
 					        	</div>
 					        	<div class="input-field col m3">
-					          		<input id="last_name" type="text" class="validate" name="apPaterno">
-					          		<label for="last_name">Apellido paterno</label>
+					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="apPaterno" required>
+					          		<label for="a" data-error="Solo se aceptan letras">Apellido paterno</label>
 					        	</div>
 					        	<div class="input-field col m3">
-					          		<input id="last_name" type="text" class="validate" name="apMaterno">
-					          		<label for="last_name">Apellido materno</label>
+					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="apMaterno" required>
+					          		<label for="a" data-error="Solo se aceptan letras">Apellido materno</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -66,20 +66,20 @@
 					      			<h5>Dirección</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="text" class="validate" name="calle">
-						         	<label for="first_name">Calle</label>
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="20" maxlength="20" class="validate" name="calle" required>
+						         	<label for="a" data-error="Solo se aceptan letras">Calle</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="number" class="validate" name="numero">
-					          		<label for="last_name">Número</label>
+					          		<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="numero" required>
+					          		<label for="a">Número</label>
 					        	</div>
 					        	<div class="input-field col m4">
-					          		<input id="last_name" type="text" class="validate" name="colonia">
-					          		<label for="last_name">Colonia</label>
+					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="25" maxlength="25" class="validate" name="colonia" required>
+					          		<label for="a" data-error="Solo se aceptan letras">Colonia</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="text" class="validate" name="cp">
-					          		<label for="last_name">C.P.</label>
+					          		<input id="a" type="text" pattern="[0-9]+" class="validate" length="5" maxlength="5" name="cp" required>
+					          		<label for="a" data-error="Máximo 5 caracteres">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -87,7 +87,8 @@
 					      			<h5>Teléfono</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate" name="telefono">
+						        	<input id="a" type="text" pattern="[0-9]+" length="20" maxlength="20" class="validate" name="telefono" required>
+						        	<label for="a" data-error="Máximo 20 caracteres"></label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">school</i>Datos escolares</h4>
@@ -97,13 +98,19 @@
 					      			<h5>Número de control</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="number" class="validate" name="noControl">
+						        	<input id="a" type="text" pattern="[0-9]+" length="8" maxlength="8" class="validate" name="noControl" required>
+						        	<label for="a" data-error="Máximo 8 caracteres"></label>
 					        	</div>
 					        	<div class="col m2">
 					      			<h5>Semestre</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="number" class="validate" name="semestre">
+						        	<select>
+      									<option value="" disabled selected>Elije un semestre...</option>
+      									<option value="1">Noveno</option>
+      									<option value="2">Decimo</option>
+      									<option value="3">Onceavo</option>
+    								</select>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -111,7 +118,8 @@
 					      			<h5>Carrera</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="carrera">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" " length="40" maxlength="40" class="validate" name="carrera" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">mail</i>Cuenta</h4>
@@ -121,10 +129,11 @@
 					      			<h5>Correo electrónico</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="email" class="validate" name="correo">
+						        	<input id="a" type="email" length="30" maxlength="30" class="validate" name="correo" required>
+						        	<label for="a" data-error="Solo se acepta este formato: ejemplo@email.com"></label>
 					        	</div>
 					      	</div>
-  							<a class="waves-effect waves-light btn red right" href="residentes.html" type="reset">Cancelar</a>
+  							<a class="waves-effect waves-light btn red right" href="residentes.php" type="reset">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
   							</button>
 					    </form>
@@ -134,4 +143,9 @@
 		</div>
   	</div>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+    	$('select').material_select();
+  	});
+</script>
 </html>

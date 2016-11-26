@@ -28,32 +28,32 @@
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
-        		<li><a href="../proyectos/proyectos.html"><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
   	</nav>
-<?php
-	$noControl=$_POST['noControl'];
-	include "../../model/conexion.php";
-	$objConex = new Conexion();
-	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM residente WHERE noControl='$noControl';" , $link) or die(mysql_error());				
-	$rows = mysql_fetch_array($sql);
-	$nombre=$rows['nombre'];
-	$apPaterno=$rows['apPaterno'];
-	$apMaterno=$rows['apMaterno'];
-	$calle=$rows['calle'];
-	$numero=$rows['numero'];
-	$colonia=$rows['colonia'];
-	$cp=$rows['cp'];
-	$telefono=$rows['telefono'];
-	$semestre=$rows['semestre'];
-	$carrera=$rows['carrera'];
-	$correo=$rows['correo'];
-?>
+	<?php
+		$noControl=$_POST['noControl'];
+		include "../../model/conexion.php";
+		$objConex = new Conexion();
+		$link=$objConex->conectarse();
+		$sql = mysql_query("SELECT * FROM residente WHERE noControl='$noControl';" , $link) or die(mysql_error());				
+		$rows = mysql_fetch_array($sql);
+		$nombre=$rows['nombre'];
+		$apPaterno=$rows['apPaterno'];
+		$apMaterno=$rows['apMaterno'];
+		$calle=$rows['calle'];
+		$numero=$rows['numero'];
+		$colonia=$rows['colonia'];
+		$cp=$rows['cp'];
+		$telefono=$rows['telefono'];
+		$semestre=$rows['semestre'];
+		$carrera=$rows['carrera'];
+		$correo=$rows['correo'];
+	?>
   	<div class="container">
 	 	<div class="row">
 			<div class="col m12">
@@ -143,7 +143,7 @@
 						        	<input id="first_name" type="email" class="validate" name="correo" value="<?php echo $correo; ?>">
 					        	</div>
 					      	</div>
-  							<a class="waves-effect waves-light btn red right" href="residentes.html">Cancelar</a>
+  							<a class="waves-effect waves-light btn red right" href="residentes.php">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
   							</button>
 					    </form>

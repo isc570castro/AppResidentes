@@ -60,12 +60,12 @@
 				    		<a href="modificar.html" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
 						</div>
 					</div>
-<?php
-include "../../model/conexion.php";
-$objConex = new Conexion();
-$link=$objConex->conectarse();
-$sql = mysql_query("SELECT * FROM residente;" , $link) or die(mysql_error());
-echo ' 
+					<?php
+					include "../../model/conexion.php";
+					$objConex = new Conexion();
+					$link=$objConex->conectarse();
+					$sql = mysql_query("SELECT * FROM residente;" , $link) or die(mysql_error());
+					echo ' 
 					<div class="row">
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">

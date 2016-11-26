@@ -27,7 +27,7 @@
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="../residentes/residentes.html"><i class="material-icons left">people</i>Residentes</a></li>
+        		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li class="active"><a href=""><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
@@ -49,7 +49,8 @@
 					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="nombreProyecto">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreProyecto" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -57,7 +58,8 @@
 					      			<h5>Asesor externo</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="asesorExterno">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorExterno" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -65,7 +67,8 @@
 					      			<h5>Asesor interno</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="asesorInterno">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorInterno" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">domain</i>Datos de la empresa</h4>
@@ -75,7 +78,8 @@
 					      			<h5>Nombre</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="nombreEmpresa">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreEmpresa" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					    	<div class="row">
@@ -83,7 +87,8 @@
 					      			<h5>Dueño</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="duenoEmpresa">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="duenoEmpresa" required>
+									<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -91,20 +96,20 @@
 					      			<h5>Dirección</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="text" class="validate" name="calle">
-						         	<label for="first_name">Calle</label>
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="calle" required>
+						         	<label for="a" data-error="Solo se aceptan letras">Calle</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="number" class="validate" name="numero">
-					          		<label for="last_name">Número</label>
+					          		<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="numero" required>
+					          		<label for="a">Número</label>
 					        	</div>
 					        	<div class="input-field col m4">
-					          		<input id="last_name" type="text" class="validate" name="colonia">
-					          		<label for="last_name">Colonia</label>
+					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="colonia" required>
+					          		<label for="a" data-error="Solo se aceptan letras">Colonia</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="text" class="validate" name="cp">
-					          		<label for="last_name">C.P.</label>
+					          		<input id="a" type="text" pattern="[0-9]+" length="5" maxlength="5" class="validate" name="cp" required>
+					          		<label for="a">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -112,7 +117,7 @@
 					      			<h5>Teléfono</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate" name="telefono">
+						        	<input id="a" type="text" pattern="[0-9]+" length="15" maxlength="15" class="validate" name="telefono">
 					        	</div>
 					      	</div>
   							<a class="waves-effect waves-light btn red right" href="proyectos.html" type="reset">Cancelar</a>
