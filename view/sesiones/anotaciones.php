@@ -1,3 +1,7 @@
+<?php 
+$noSesion=$_REQUEST['noSesion'];
+$idProyecto=$_REQUEST['idProyecto'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,29 +43,34 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Anotaciones</H3>
+			       	<H3 align="center">Sesion <?php echo $noSesion?></H3>
 				  	<div class="row">
-					    <form class="col s12">
+					    <form class="col s12" action="../../controller/sesiones/actualizarSesion.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $noSesion; ?>" method="POST" enctype="multipart/form-data" name="frmAgregar">
 					      	<div class="row">
 					      		<div class="col m12">
 					      			<h5>Avances</h5>
 					      		</div>
 						        <div class="input-field col m12">
-						        	<textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+						        	<textarea id="textarea1" class="materialize-textarea" length="120" name="avances"></textarea>
 					        	</div>
 					        	<div class="col m12">
 					      			<h5>Observaciones</h5>
 					      		</div>
 						        <div class="input-field col m12">
-						        	<textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+						        	<textarea id="textarea1" class="materialize-textarea" length="120" name="observaciones"></textarea>
 					        	</div>
 					      	</div>
 					      	<div class="row">
 					      		<div class="col m2">
-					      			<h5>Calificación</h5>
+					      			<h5>Estado</h5>
 					      		</div>
 						        <div class="input-field col m3">
-						        	<input id="first_name" type="number" class="validate">
+						        	<select name="estado">
+						        		<option value="Pendiente">Pendiente</option>
+						        		<option value="Concluido">Concluido</option>
+						        		<option value="Cancelado">Cancelado</option>
+						        	</select>
+
 					        	</div>
 					      	</div>
   							<button class="btn waves-effect waves-light red right">Cancelar
@@ -80,5 +89,10 @@
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 </script>
+
 </html>

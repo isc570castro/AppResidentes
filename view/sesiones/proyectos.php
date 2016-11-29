@@ -1,3 +1,9 @@
+<?php
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT * FROM proyecto" , $link) or die(mysql_error());					
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +35,8 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href=""><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -39,51 +45,39 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Relaciones</H3>
+			       	<H3 align="center">Proyectos</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form>
+			       			<form action="buscarProyecto.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required>
+          							<input id="search" type="search" required name="nombreProyecto">
           							<label for="search"><i class="material-icons">search</i></label>
           							<i class="material-icons">close</i>
+
         						</div>
       						</form>
       					</div>
-						<div class="col m12 center">
-				    		<a href="agregar.html" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
-						</div>
 					</div>
 					<div class="row">
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						              	<th>Nombre del alumno</th>
-						              	<th>Proyecto asignado</th>
-						              	<th></th>
+						              	<th>Proyecto</th>
 						              	<th></th>
 						          	</tr>
 						        </thead>
 						        <tbody>
-						          	<tr>
-						            	<td>Alvin Yakitori</td>
-						            	<td>Seguridad web</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						            	<td><a class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
-						          	</tr>
-						          	<tr>
-						            	<td>Javier Cuevas</td>
-						            	<td>Resorteras nucleares</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						            	<td><a class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
-						          	</tr>
-						          	<tr>
-						            	<td>Carla Castañeda</td>
-						            	<td>Animación</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						            	<td><a class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
-						          	</tr>
+						        <?php
+						        while ($rows = mysql_fetch_array($sql)){   
+								?>
+								<tr>
+									<td><?php echo $rows ['nombreProyecto']; ?></td>
+						          	<td><a href="historial.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						         </tr>
+						    	<?php 
+								}
+						    	?>
 						        </tbody>
 			      			</table>
 						</div>

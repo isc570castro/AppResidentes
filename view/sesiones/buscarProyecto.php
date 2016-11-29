@@ -1,3 +1,9 @@
+<?php
+	$nombreProyecto=$_POST['nombreProyecto'];
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT * FROM proyecto where nombreProyecto like'%$nombreProyecto%'", $link) or die(mysql_error());	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +12,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Eliminar relación | SGR</title>
+	<title>Relaciones | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -22,6 +28,7 @@
 			</div>
 		</div>
 	</div>
+	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
@@ -38,22 +45,43 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			    	<H3 align="center">Eliminar relación</H3>
-				  	<div class="row">
-					    <form class="col s12">
-					    	<h4><i class="material-icons left" style="font-size: 40px;">cancel</i>Eliminar</h4>
-					    	<div class="divider"></div>
-					      	<div class="row">
-					      		<div class="col m2">
-					      			<h5>Relación</h5>
-					      		</div>
-						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate">
-					        	</div>
-  							<a class="waves-effect waves-light btn red right" href="relaciones.html">Cancelar</a>
-					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
-					    </form>
-				 	 </div>
+			       	<H3 align="center">Sesiones</H3>
+			       	<div class="row">
+			       		<div class="col m12">
+			       			<form action="" method="POST" enctype="multipart/form-data" name="frmBuscar">
+        						<div class="input-field">
+          							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto?>">
+          							<label for="search"><i class="material-icons">search</i></label>
+          							<i class="material-icons">close</i>
+
+        						</div>
+      						</form>
+      					</div>
+					</div>
+					<div class="row">
+						<div class="col m12">
+							<table class="centered striped bordered z-depth-3">
+						        <thead>
+						          	<tr>
+						              	<th>Proyecto</th>
+						              	<th></th>
+						          	</tr>
+						        </thead>
+						        <tbody>
+						        <?php
+						        while ($rows = mysql_fetch_array($sql)){   
+								?>
+								<tr>
+									<td><?php echo $rows ['nombreProyecto']; ?></td>
+						          	<td><a href="historial.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						         </tr>
+						    	<?php 
+								}
+						    	?>
+						        </tbody>
+			      			</table>
+						</div>
+					</div>
 			    </div>
 			</div>
 		</div>

@@ -1,3 +1,12 @@
+<?php
+	$idProyecto=$_REQUEST['idProyecto'];
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT   noSesion, fecha, hora, avances, observaciones, estado FROM  sesiones  where  idProyecto=$idProyecto ", $link) or die(mysql_error());
+	$sql2 = mysql_query("SELECT   nombreProyecto FROM  proyecto where  idProyecto=$idProyecto ", $link) or die(mysql_error());	
+	$rows2 = mysql_fetch_array($sql2);
+	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +16,16 @@
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
 	<title>Historial | SGR</title>
+	<script type='text/javascript'>
+	function confirm() {
+	var confirm=confirm('¿Esta seguro que desea eliminar una sesion?');
+	if (confirm){
+		return true;
+	}else{
+		return false;
+	}
+	}
+	</script>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -29,7 +48,7 @@
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li class="active"><a href="sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -38,7 +57,7 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Historial de sesiones</H3>
+			       	<H3 align="center">Historial de sesiones de <br><?php echo $rows2['nombreProyecto']?></H3>
 					<div class="row">
 						<div class="col m12">
 			       			<form>
@@ -49,39 +68,45 @@
         						</div>
       						</form>
       					</div>
+      						<div class="row">
+						<div class="col m4 center">
+				    			<a class=" btn-large green accent-3 " href="nuevaSesion.php?idProyecto=<?php echo $idProyecto;?>"><i class="material-icons left">add</i>Nueva sesión</a>
+						</div>
+						<div class="col m4 center">
+				    		<a class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">description</i>Reporte</a>
+						</div>
+						<div class="col m4 center">
+				    		<a class="waves-effect waves-light btn-large yellow accent-4 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
+						</div>
+					    </div>
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						              	<th>Número de sesión</th>
-						              	<th>Fecha de la sesión</th>
+						              	<th>Fecha de sesión</th>
+						              	<th>Hora de sesión</th>
 						              	<th>Avances</th>
 						              	<th>Observación</th>
+						              	<th>Estado</th>
 						              	<th></th>
 						          	</tr>
 						        </thead>
 						        <tbody>
-						          	<tr>
-						            	<td>1</td>
-						            	<td>20-Enero-2017</td>
-						            	<td>Interfaz completa</td>
-						            	<td>Faltaron campos</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						          	</tr>
-						          	<tr>
-						            	<td>2</td>
-						            	<td>3-Febrero-2017</td>
-						            	<td>Campos actualizados</td>
-						            	<td>Ninguna</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						          	</tr>
-						          	<tr>
-						            	<td>3</td>
-						            	<td>17-Febrero-2017</td>
-						            	<td>Altas y bajas creadas</td>
-						            	<td>Hay error en las sentencias</td>
-						            	<td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar"><i class="material-icons">input</i></a></td>
-						          	</tr>
+						        <?php 
+						        	while($rows = mysql_fetch_array($sql)){   
+								?>
+								<tr>
+									<td><?php echo $rows ['fecha']; ?></td>
+									<td><?php echo $rows ['hora']; ?></td>
+									<td><?php echo $rows ['observaciones']; ?></td>
+									<td><?php echo $rows ['avances']; ?></td>
+									<td><?php echo $rows ['estado']; ?></td>
+						          	<td><a href="anotaciones.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesion"><i class="material-icons">input</i></a></td>
+						          	<td><a onclick="confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a></td>
+						         </tr>
+						        <?php
+						    }
+						        ?>
 						        </tbody>
 			      			</table>
 						</div>
@@ -99,26 +124,11 @@
 							</div>
 					    </div>
 					</form>-->      	
-					<div class="row">
-						<div class="col m4 center">
-				    			<button class="btn waves-effect waves-light btn-large green accent-3 z-depth-3 datepicker" type="date" name="action"><i class="material-icons left">add</i>Nueva sesión
-							</div>
-						<div class="col m4 center">
-				    		<a class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">description</i>Reporte</a>
-						</div>
-						<div class="col m4 center">
-				    		<a class="waves-effect waves-light btn-large yellow accent-4 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
-						</div>
-					</div>
+				
 			    </div>
 			</div>
 		</div>
   	</div>
 </body>
-<script type="text/javascript">
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 2 // Creates a dropdown of 15 years to control year
-  });
 </script>
 </html>

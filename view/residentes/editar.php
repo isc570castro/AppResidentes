@@ -121,8 +121,13 @@
 					        	<div class="col m2">
 					      			<h5>Semestre</h5>
 					      		</div>
-						        <div class="input-field col m4">
-						        	<input id="first_name" type="number" class="validate" name="semestre" value="<?php echo $semestre; ?>">
+						         <div class="input-field col m4">
+						        	<select name="semestre">
+      									<option value="<?php echo $semestre; ?>" disabled selected><?php echo $semestre; ?></option>
+      									<option value="Noveno">Noveno</option>
+      									<option value="Decimo">Decimo</option>
+      									<option value="Onceavo">Onceavo</option>
+    								</select>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -153,4 +158,9 @@
 		</div>
   	</div>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+    	$('select').material_select();
+  	});
+</script>
 </html>
