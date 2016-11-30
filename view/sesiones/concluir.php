@@ -1,9 +1,3 @@
-<?php
-	$nombreProyecto=$_POST['nombreProyecto'];
-	include "../../model/conexion.php";
-	$objConex = new Conexion();
-	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM proyecto where nombreProyecto like'%$nombreProyecto%'", $link) or die(mysql_error());	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +6,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Búsqueda | SGR</title>
+	<title>Concluir proyecto | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -28,15 +22,14 @@
 			</div>
 		</div>
 	</div>
-	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li class="active"><a href="relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href="sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -45,39 +38,35 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Sesiones</H3>
-			       	<div class="row">
-			       		<div class="col m12">
-			       			<form action="" method="POST" enctype="multipart/form-data" name="frmBuscar">
-        						<div class="input-field">
-          							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto?>">
-          							<label for="search"><i class="material-icons">search</i></label>
-          							<i class="material-icons">close</i>
-
-        						</div>
-      						</form>
-      					</div>
-					</div>
+			       	<H3 align="center">Concluir proyecto</H3>
 					<div class="row">
+						<div class="col m12">
+      					</div>
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						              	<th>Proyecto</th>
+						              	<th>Nombre del alumno</th>
+						              	<th></th>
 						              	<th></th>
 						          	</tr>
 						        </thead>
 						        <tbody>
-						        <?php
-						        while ($rows = mysql_fetch_array($sql)){   
-								?>
 								<tr>
-									<td><?php echo $rows ['nombreProyecto']; ?></td>
-						          	<td><a href="asignarResidentes.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+									<td>Alvin Yakitori</td>
+									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
+									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
-						    	<?php 
-								}
-						    	?>
+						         <tr>
+									<td>Javier Cuevas</td>
+									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
+									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
+						         </tr>
+						         <tr>
+									<td>Lucía Fernanda</td>
+									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
+									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
+						         </tr>
 						        </tbody>
 			      			</table>
 						</div>
@@ -87,4 +76,5 @@
 		</div>
   	</div>
 </body>
+</script>
 </html>

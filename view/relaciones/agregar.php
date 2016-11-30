@@ -34,8 +34,8 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li class="active"><a href="relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -72,7 +72,7 @@
 								?>
 								<tr>
 									<td><?php echo $rows ['nombreProyecto']; ?></td>
-						          	<td><a href="asignarResidentes.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						          	<td><a href="asignarResidentes.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Asignar residentes"><i class="material-icons">input</i></a></td>
 						         </tr>
 						    	<?php 
 								}

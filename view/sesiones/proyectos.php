@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Relaciones | SGR</title>
+	<title>Proyectos | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -35,8 +35,8 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href=""><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li class="active"><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href="sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>

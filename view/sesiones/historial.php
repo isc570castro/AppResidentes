@@ -47,7 +47,7 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li class="active"><a href="sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
@@ -76,7 +76,7 @@
 				    		<a class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">description</i>Reporte</a>
 						</div>
 						<div class="col m4 center">
-				    		<a class="waves-effect waves-light btn-large yellow accent-4 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
+				    		<a class="waves-effect waves-light btn-large yellow darken-2 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
 						</div>
 					    </div>
 						<div class="col m12">
@@ -111,20 +111,6 @@
 			      			</table>
 						</div>
 					</div>
-					<!--<form>
-					    <div class="row">
-					      	<div class="col m3">
-					      		<h5>Nueva sesión</h5>
-					      	</div>
-						       <div class="input-field col m7">
-						        <input id="first_name" type="date" class="datepicker">
-					        </div>
-					        <div class="col m2 center">
-				    			<button class="btn waves-effect waves-light btn-large green accent-3 z-depth-3" type="submit" name="action">Aceptar
-							</div>
-					    </div>
-					</form>-->      	
-				
 			    </div>
 			</div>
 		</div>

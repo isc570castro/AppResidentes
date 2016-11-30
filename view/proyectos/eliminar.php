@@ -28,9 +28,9 @@
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li class="active"><a href="proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>

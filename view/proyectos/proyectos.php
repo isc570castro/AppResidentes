@@ -45,7 +45,7 @@
 			       			<form action="../../controller/proyectos/consultarProyecto.php" method="POST" enctype="multipart/form-data" name="frmConsultar">
         						<div class="input-field">
           							<input id="search" type="search" required name="nombreProyecto">
-          							<label for="search"><i class="material-icons">search</i></label>
+          							<label for="search" style="font-size: 20px;"><i class="material-icons">search</i> Buscar por proyecto</label>
           							<i class="material-icons">close</i>
         						</div>
       						</form>

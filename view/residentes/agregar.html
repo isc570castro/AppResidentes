@@ -22,15 +22,14 @@
 			</div>
 		</div>
 	</div>
-	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
+        		<li class="active"><a href="residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -79,7 +78,7 @@
 					        	</div>
 					        	<div class="input-field col m1">
 					          		<input id="a" type="text" pattern="[0-9]+" class="validate" length="5" maxlength="5" name="cp" required>
-					          		<label for="a" data-error="Máximo 5 caracteres">C.P.</label>
+					          		<label for="a" data-error="Solo se aceptan numeros">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -88,7 +87,7 @@
 					      		</div>
 						        <div class="input-field col m10">
 						        	<input id="a" type="text" pattern="[0-9]+" length="20" maxlength="20" class="validate" name="telefono" required>
-						        	<label for="a" data-error="Máximo 20 caracteres"></label>
+						        	<label for="a" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">school</i>Datos escolares</h4>
@@ -99,18 +98,19 @@
 					      		</div>
 						        <div class="input-field col m4">
 						        	<input id="a" type="text" pattern="[0-9]+" length="8" maxlength="8" class="validate" name="noControl" required>
-						        	<label for="a" data-error="Máximo 8 caracteres"></label>
+						        	<label for="a" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
 					      			<h5>Semestre</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<select name="semestre">
-      									<option value="" disabled selected>Elije un semestre...</option>
+						        	<select id="a" name="semestre" required>
+      									<option value="" disabled selected>Elija un semestre...</option>
       									<option value="Noveno">Noveno</option>
       									<option value="Decimo">Decimo</option>
       									<option value="Onceavo">Onceavo</option>
     								</select>
+    								<label for="a" data-error="Escoja una opción"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">

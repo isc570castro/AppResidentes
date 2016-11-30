@@ -77,7 +77,7 @@
 						          	<tr>
 						          		<td><?php echo $rows['nombreResidente'];?></td>
 						          		<td><?php echo $rows['nombreProyecto'];?></td>
-						            	<td><a class="btn tooltipped red" href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>"data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
+						            	<td><a class="btn tooltipped " href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
 						          	</tr>
 						         <?php } ?> 
 						        </tbody>

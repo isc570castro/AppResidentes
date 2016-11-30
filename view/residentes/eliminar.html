@@ -22,15 +22,14 @@
 			</div>
 		</div>
 	</div>
-	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
+        		<li class="active"><a href="residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -49,10 +48,16 @@
 					      			<h5>Número de control</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate" name="noControl">
+						        	<input id="a" type="text" pattern="[0-9]+" length="8" maxlength="8" class="validate" name="noControl">
+						        	<label for="a" data-error="Solo se aceptan numeros"></label>
 					        	</div>
-  							<a class="waves-effect waves-light btn red right" href="residentes.html">Cancelar</a>
-					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
+					        </div>
+					        <div class="row">
+					        	<div class="col m12">
+  									<a class="waves-effect waves-light btn red right" href="residentes.html">Cancelar</a>
+					      			<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
+					      		</div>
+					      	</div>
 					    </form>
 				 	 </div>
 			    </div>
