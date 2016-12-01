@@ -134,7 +134,16 @@
 					      			<h5>Carrera</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="carrera" value="<?php echo $carrera; ?>">
+						        	<select id="a" name="carrera" required>
+      									<option value="No definido" disabled selected>Elija una carrera...</option>
+      									<option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
+      									<option value="Ingeniería en Informática">Ingeniería en Informática</option>
+      									<option value="Ingeniería en Gestion Empresarial">Ingeniería en Gestion Empresarial</option>
+      									<option value="Ingeniería en Electromecánica">Ingeniería en Electromecánica</option>
+      									<option value="Arquitectura">Arquitectura</option>
+      									<option value="Licenciatura en Administración de Empresas">Licenciatura en Administración de Empresas</option>
+      									<option value="Ingeniería en Materiales">Ingeniería en Materiales</option>
+    								</select>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">mail</i>Cuenta</h4>

@@ -1,9 +1,9 @@
 <?php
-$nombreResidente=$_POST['nombreResidente'];
+$noControl=$_POST['noControl'];
 include "../../model/conexion.php";
 $objConex = new Conexion();
 $link=$objConex->conectarse();
-$sql = mysql_query("SELECT * FROM residente WHERE nombreResidente like '%$nombreResidente%';" , $link) or die(mysql_error());
+$sql = mysql_query("SELECT * FROM residente WHERE noControl like '%$noControl%';" , $link) or die(mysql_error());
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,9 +51,8 @@ $sql = mysql_query("SELECT * FROM residente WHERE nombreResidente like '%$nombre
 			       		<div class="col m12">
 			       			<form action="consultarResidente.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required name="nombreResidente" value="<?php echo $nombreResidente; ?>">
-          							<label for="search"><i class="material-icons">search</i></label>
-          							<i class="material-icons">close</i>
+          							<input id="search" type="search" required name="noControl" value="<?php echo $noControl; ?>">
+          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar por numero de control</label>
         						</div>
       						</form>
       					</div>

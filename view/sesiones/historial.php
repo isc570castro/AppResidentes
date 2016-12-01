@@ -73,16 +73,17 @@
 				    			<a class=" btn-large green accent-3 " href="nuevaSesion.php?idProyecto=<?php echo $idProyecto;?>"><i class="material-icons left">add</i>Nueva sesión</a>
 						</div>
 						<div class="col m4 center">
-				    		<a class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">description</i>Reporte</a>
+				    		<a target="_bank" class="waves-effect waves-light btn-large blue z-depth-3" href="reportes/reporteSesiones.php?idProyecto=<?php echo $idProyecto; ?>"><i class="material-icons left">description</i>Reporte</a>
 						</div>
 						<div class="col m4 center">
-				    		<a class="waves-effect waves-light btn-large yellow darken-2 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
+				    		<a href="concluir.php?idProyecto=<?php echo $idProyecto;?>" class="waves-effect waves-light btn-large yellow darken-2 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
 						</div>
 					    </div>
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
+						          		<th>No. sesión</th>
 						              	<th>Fecha de sesión</th>
 						              	<th>Hora de sesión</th>
 						              	<th>Avances</th>
@@ -96,6 +97,7 @@
 						        	while($rows = mysql_fetch_array($sql)){   
 								?>
 								<tr>
+									<td><?php echo $rows ['noSesion']; ?></td>
 									<td><?php echo $rows ['fecha']; ?></td>
 									<td><?php echo $rows ['hora']; ?></td>
 									<td><?php echo $rows ['observaciones']; ?></td>
@@ -103,6 +105,7 @@
 									<td><?php echo $rows ['estado']; ?></td>
 						          	<td><a href="anotaciones.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesion"><i class="material-icons">input</i></a></td>
 						          	<td><a onclick="confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a></td>
+						          	<td><a href="residentes.php?noSesion=<?php echo $rows['noSesion'];?>&idProyecto=<?php echo $idProyecto;?>" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
 						        <?php
 						    }

@@ -105,7 +105,7 @@
 					      		</div>
 						        <div class="input-field col m4">
 						        	<select id="a" name="semestre" required>
-      									<option value="" disabled selected>Elija un semestre...</option>
+      									<option value="No definido" disabled selected>Elija un semestre...</option>
       									<option value="Noveno">Noveno</option>
       									<option value="Decimo">Decimo</option>
       									<option value="Onceavo">Onceavo</option>
@@ -118,8 +118,16 @@
 					      			<h5>Carrera</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" " length="40" maxlength="40" class="validate" name="carrera" required>
-						        	<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<select id="a" name="carrera" required>
+      									<option value="No definido" disabled selected>Elija una carrera..</option>
+      									<option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
+      									<option value="Ingeniería en Informática">Ingeniería en Informática</option>
+      									<option value="Ingeniería en Gestion Empresarial">Ingeniería en Gestion Empresarial</option>
+      									<option value="Ingeniería en Electromecánica">Ingeniería en Electromecánica</option>
+      									<option value="Arquitectura">Arquitectura</option>
+      									<option value="Licenciatura en Administración de Empresas">Licenciatura en Administración de Empresas</option>
+      									<option value="Ingeniería en Materiales">Ingeniería en Materiales</option>
+    								</select>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">mail</i>Cuenta</h4>

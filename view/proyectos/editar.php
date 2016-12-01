@@ -36,13 +36,13 @@
     	</div>
   	</nav>
 <?php
-	$nombreProyecto=$_POST['nombreProyecto'];
+	$idProyecto=$_REQUEST['idProyecto'];
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto='$nombreProyecto';" , $link) or die(mysql_error());				
+	$sql = mysql_query("SELECT * FROM proyecto WHERE idProyecto='$idProyecto';" , $link) or die(mysql_error());				
 	$rows = mysql_fetch_array($sql);
-	$idProyecto=$rows['idProyecto'];
+	$nombreProyecto=$rows['nombreProyecto'];
  	$asesorExterno=$rows['asesorExterno'];
  	$asesorInterno=$rows['asesorInterno'];
 	$nombreEmpresa=$rows['nombreEmpresa'];
@@ -60,7 +60,7 @@
 			    <div class="card-panel white z-depth-3">
 			    	<H3 align="center">Agregar proyecto</H3>
 				  	<div class="row">
-					    <form class="col s12" action="../../controller/proyectos/actualizarProyecto.php" method="POST" enctype="multipart/form-data" name="frmAgregar">
+					    <form class="col s12" action="../../controller/proyectos/actualizarProyecto.php?idProyecto=<?php echo $idProyecto;?>" method="POST" enctype="multipart/form-data" name="frmAgregar">
 					    	<h4><i class="material-icons left" style="font-size: 40px;">work</i>Datos del proyecto</h4>
 					    	<div class="divider"></div>
 					      	<div class="row">
@@ -68,7 +68,7 @@
 					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="nombreProyecto" readonly value="<?php echo $nombreProyecto ?>">
+						        	<input id="first_name" type="text" class="validate" name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
 					        	</div>
 					      	</div>
 					      	<div class="row">

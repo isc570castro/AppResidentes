@@ -1,3 +1,7 @@
+<?php 
+$idProyecto=$_REQUEST['idProyecto'];
+$noControl=$_REQUEST['noControl'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +10,42 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		function sumaCalif(){
+			var primera = $("#primera").val();
+			primera = parseInt(primera);
+			if (isNaN(primera)){
+				primera=0;
+			}
+			var segunda = $("#segunda").val();
+			segunda = parseInt(segunda);
+			if (isNaN(segunda)){
+				segunda=0;
+			}
+			var tercera = $("#tercera").val();
+			tercera = parseInt(tercera);
+			if (isNaN(tercera)){
+				tercera=0;
+			}
+			var cuarta = $("#cuarta").val();
+			cuarta = parseInt(cuarta);
+			if (isNaN(cuarta)){
+				cuarta=0;
+			}
+			var quinta = $("#quinta").val();
+			quinta = parseInt(quinta);
+			if (isNaN(quinta)){
+				quinta=0;
+			}
+			var sexta = $("#sexta").val();
+			sexta = parseInt(sexta);
+			if (isNaN(sexta)){
+				sexta=0;
+			}
+			var calificacion = primera + segunda + tercera + cuarta + quinta + sexta;
+			$("#calificacion").val(calificacion);
+		}
+	</script>
 	<title>Calificar alumno| SGR</title>
 </head>
 <body class="grey lighten-2">
@@ -48,7 +88,7 @@
 					      			<h5>1.- Mostró responsabilidad y compromiso en la Residencia Profesional</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" required>
+						        	<input id="primera" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
@@ -60,7 +100,7 @@
 					      			<h5>2.- Realizó un trabajo innvador en su área de desempeño</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required>
+						        	<input id="segunda" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
@@ -72,7 +112,7 @@
 					      			<h5>3.- Aplica las competencias para la realización del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required>
+						        	<input id="tercera" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
@@ -84,7 +124,7 @@
 					      			<h5>4.- Es dedicado y proactivo en los trabajos encomendados</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required>
+						        	<input id="cuarta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
@@ -96,7 +136,7 @@
 					      			<h5>5.- Cumple con los objetivos correspondientes al proyecto</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required>
+						        	<input id="quinta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
@@ -108,16 +148,26 @@
 					      			<h5>6.- Entrega en tiempo y forma el informe técnico</h5>
 					      		</div>
 						        <div class="input-field col m1">
-						        	<input id="ab" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" required>
+						        	<input id="sexta" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" required onblur="sumaCalif();">
 						         	<label for="ab" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					        	<div class="col m2">
 					        		<h5>De 0 a 5 puntos</h5>
 					        	</div>
 					        </div>
+					        <form action="../../controller/residentes/asignarCalificacion.php?noControl=<?php echo $noControl; ?>&idProyecto=<?php echo $idProyecto; ?>" method="POST" enctype="multipart/form-data" name="frmBuscar">
+					        <div class="row">
+					      		<div class="col m8">
+					      			<h5><b>Calificación<b></h5>
+					      		</div>
+						        <div class="input-field col m2">
+						        	<input id="calificacion" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="calificacion" required readonly value="0">
+					        	</div>
+					        </div>
 					        <a class="waves-effect waves-light btn red right" href="concluir.php" type="reset">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
   							</button>
+  							</form>
 						</div>
 					</div>
 			    </div>

@@ -5,8 +5,12 @@
 	include "../../model/conexion.php";
 $objConex = new Conexion();
 $link=$objConex->conectarse();
+$sqlmaxSesion= mysql_query("select max(noSesion) from sesiones where idProyecto=$idProyecto", $link) or die(mysql_error());
+$rows = mysql_fetch_array($sqlmaxSesion);
+$noSesion=$rows['max(noSesion)']+1;
+
 $sql = mysql_query("INSERT INTO sesiones
-		VALUES (1,'$idProyecto','$fecha','$hora','','','Pendiente')", $link) or die(mysql_error());
+		VALUES ('$noSesion','$idProyecto','$fecha','$hora','','','Pendiente')", $link) or die(mysql_error());
 if (!$sql){
 	die("<p>Fallo la insersion a la base de datos: ".mysql_error()."</p>");
 	mysql_close($link);

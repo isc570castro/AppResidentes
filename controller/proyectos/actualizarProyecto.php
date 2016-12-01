@@ -1,4 +1,5 @@
-<?php	
+<?php
+	$idProyecto=$_GET['idProyecto'];	
 	$nombreProyecto=$_POST['nombreProyecto'];
  	$asesorExterno=$_POST['asesorExterno'];
  	$asesorInterno=$_POST['asesorInterno'];
@@ -14,7 +15,7 @@
 $objConex = new Conexion();
 $link=$objConex->conectarse();
 $sql = mysql_query("UPDATE proyecto SET
-		nombreProyecto='$nombreProyecto', asesorExterno='$asesorExterno',asesorInterno='$asesorInterno',nombreEmpresa='$nombreEmpresa',duenoEmpresa='$duenoEmpresa',direccionEmpresa='Calle ".$calle." #".$numero." Col. ".$colonia." C.P. ".$cp."',calle='$calle',numero='$numero',colonia='$colonia',cp='$cp',telefonoEmpresa='$telefono',estado='$estado' WHERE nombreProyecto='$nombreProyecto';", $link) or die(mysql_error());
+		nombreProyecto='$nombreProyecto', asesorExterno='$asesorExterno',asesorInterno='$asesorInterno',nombreEmpresa='$nombreEmpresa',duenoEmpresa='$duenoEmpresa',direccionEmpresa='Calle ".$calle." #".$numero." Col. ".$colonia." C.P. ".$cp."',calle='$calle',numero='$numero',colonia='$colonia',cp='$cp',telefonoEmpresa='$telefono',estado='$estado' WHERE idProyecto='$idProyecto';", $link) or die(mysql_error());
 if (!$sql){
 	die("<p>Fallo la actualización de datos: ".mysql_error()."</p>");
 }else{

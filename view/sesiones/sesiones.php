@@ -58,7 +58,7 @@
       						</form>
       					</div>
       					<div class="col m12 center">
-				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
+				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Nueva sesion</a>
 						</div>
 					</div>
 					<div class="row">
@@ -77,6 +77,7 @@
 						        while ($rows = mysql_fetch_array($sql)){   
 								?>
 								<tr>
+									
 									<td><?php echo $rows ['nombreProyecto']; ?></td>
 									<td><?php echo $rows ['fecha']; ?></td>
 									<td><?php echo $rows ['hora']; ?></td>

@@ -3,7 +3,6 @@
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
 	$sql = mysql_query("SELECT  * FROM proyecto, residente, asignaciones where proyecto.idProyecto=asignaciones.idProyecto and residente.noControl=asignaciones.noControl", $link) or die(mysql_error());	
-	$rows = mysql_fetch_array($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,7 +57,7 @@
       						</form>
       					</div>
 						<div class="col m12 center">
-				    		<a href="agregar.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
+				    		<a href="agregar.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Asignar proyecto</a>
 						</div>
 					</div>
 					<div class="row">
@@ -77,7 +76,7 @@
 						          	<tr>
 						          		<td><?php echo $rows['nombreResidente'];?></td>
 						          		<td><?php echo $rows['nombreProyecto'];?></td>
-						            	<td><a class="btn tooltipped " href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
+						            	<td><a class="btn tooltipped red" href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
 						          	</tr>
 						         <?php } ?> 
 						        </tbody>

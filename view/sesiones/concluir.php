@@ -1,3 +1,10 @@
+   <?php
+          $idProyecto=$_REQUEST['idProyecto'];
+          include "../../model/conexion.php";
+          $objConex = new Conexion();
+          $link=$objConex->conectarse();
+          $sql = mysql_query("SELECT * FROM residente, proyecto, asignaciones WHERE proyecto.idProyecto='$idProyecto' and proyecto.idProyecto=asignaciones.idProyecto and residente.noControl=asignaciones.noControl;" , $link) or die(mysql_error());
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,21 +59,17 @@
 						          	</tr>
 						        </thead>
 						        <tbody>
+						         <?php 
+          						while($rows = mysql_fetch_array($sql)){   
+         						 ?>
 								<tr>
-									<td>Alvin Yakitori</td>
-									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
+									<td><?php echo $rows['nombreResidente']?></td>
+									<td><a href="calificar.php?idProyecto=<?php echo $idProyecto;?>&noControl=<?php echo $rows['noControl']?>" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
 									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
-						         <tr>
-									<td>Javier Cuevas</td>
-									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
-									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
-						         </tr>
-						         <tr>
-									<td>Lucía Fernanda</td>
-									<td><a href="" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
-									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
-						         </tr>
+						            <?php 
+          						}   
+         						 ?>
 						        </tbody>
 			      			</table>
 						</div>

@@ -44,8 +44,8 @@
 			       		<div class="col m12">
 			       			<form action="../../controller/residentes/consultarResidente.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required name="nombreResidente">
-          							<label for="search" style="font-size: 20px;"><i class="material-icons">search</i> Buscar por numero de control</label>
+          							<input id="search" type="search" required name="noControl">
+          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar por numero de control</label>
           							<i class="material-icons">close</i>
         						</div>
       						</form>
