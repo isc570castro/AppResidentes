@@ -53,7 +53,7 @@
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						              	<th>Nombre del alumno</th>
+						              	<th>Nombre del residente</th>
 						              	<th></th>
 						              	<th></th>
 						          	</tr>

@@ -63,7 +63,7 @@
 			       			<form>
         						<div class="input-field">
           							<input id="search" type="search" required>
-          							<label for="search"><i class="material-icons">search</i></label>
+          							<label for="search"  style="font-size: 20px;"><i class="material-icons">search</i>Buscar por sesión</label>
           							<i class="material-icons">close</i>
         						</div>
       						</form>

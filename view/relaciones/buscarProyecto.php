@@ -51,7 +51,7 @@
 			       			<form action="" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
           							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto?>">
-          							<label for="search"><i class="material-icons">search</i></label>
+          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar proyecto</label>
           							<i class="material-icons">close</i>
 
         						</div>

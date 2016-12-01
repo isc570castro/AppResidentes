@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
+	<script src="../../src/js/validarSelect.js"></script>
 	<title>Agregar residente | SGR</title>
 </head>
 <body class="grey lighten-2">
@@ -104,13 +105,12 @@
 					      			<h5>Semestre</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<select id="a" name="semestre" required>
-      									<option value="No definido" disabled selected>Elija un semestre...</option>
+						        	<select id="a" name="semestre">
+      									<option value="" disabled selected>Elija un semestre...</option>
       									<option value="Noveno">Noveno</option>
       									<option value="Decimo">Decimo</option>
       									<option value="Onceavo">Onceavo</option>
     								</select>
-    								<label for="a" data-error="Escoja una opción"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -118,8 +118,8 @@
 					      			<h5>Carrera</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<select id="a" name="carrera" required>
-      									<option value="No definido" disabled selected>Elija una carrera..</option>
+						        	<select id="a" name="carrera">
+      									<option value="" disabled selected="">Elija una carrera..</option>
       									<option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
       									<option value="Ingeniería en Informática">Ingeniería en Informática</option>
       									<option value="Ingeniería en Gestion Empresarial">Ingeniería en Gestion Empresarial</option>
@@ -142,7 +142,7 @@
 					        	</div>
 					      	</div>
   							<a class="waves-effect waves-light btn red right" href="residentes.php" type="reset">Cancelar</a>
-					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
+					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action" onclick="return validarSelect();">Aceptar
   							</button>
 					    </form>
 				 	 </div>
