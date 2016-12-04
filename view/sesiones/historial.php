@@ -59,15 +59,6 @@
 			    <div class="card-panel white z-depth-3">
 			       	<H3 align="center">Historial de sesiones de <br><?php echo $rows2['nombreProyecto']?></H3>
 					<div class="row">
-						<div class="col m12">
-			       			<form>
-        						<div class="input-field">
-          							<input id="search" type="search" required>
-          							<label for="search"  style="font-size: 20px;"><i class="material-icons">search</i>Buscar por sesión</label>
-          							<i class="material-icons">close</i>
-        						</div>
-      						</form>
-      					</div>
       						<div class="row">
 						<div class="col m4 center">
 				    			<a class=" btn-large green accent-3 " href="nuevaSesion.php?idProyecto=<?php echo $idProyecto;?>"><i class="material-icons left">add</i>Nueva sesión</a>
@@ -104,7 +95,7 @@
 									<td><?php echo $rows ['avances']; ?></td>
 									<td><?php echo $rows ['estado']; ?></td>
 						          	<td><a href="anotaciones.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesion"><i class="material-icons">input</i></a></td>
-						          	<td><a onclick="confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a></td>
+						          	<td><a onclick="return confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a></td>
 						          	<td><a href="residentes.php?noSesion=<?php echo $rows['noSesion'];?>&idProyecto=<?php echo $idProyecto;?>" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
 						        <?php

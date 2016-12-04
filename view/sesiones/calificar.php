@@ -9,7 +9,6 @@ $noControl=$_REQUEST['noControl'];
 	<link rel="stylesheet" href="../../src/materialize/css/materialize.min.css">
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
-	<script src="../../src/materialize/js/materialize.min.js"></script>
 	<script type="text/javascript">
 		function sumaCalif(){
 			var primera = $("#primera").val();
@@ -42,6 +41,7 @@ $noControl=$_REQUEST['noControl'];
 			if (isNaN(sexta)){
 				sexta=0;
 			}
+
 			var calificacion = primera + segunda + tercera + cuarta + quinta + sexta;
 			$("#calificacion").val(calificacion);
 		}
@@ -89,7 +89,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>1.- Mostró responsabilidad y compromiso en la Residencia Profesional</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="primera" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="primera" type="number" pattern="[0-9]+" min="0" max="5" name="requisitouno" class="validate center" onblur="sumaCalif();" required >
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -101,7 +101,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>2.- Realizó un trabajo innvador en su área de desempeño</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="segunda" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="segunda" type="number" pattern="[0-9]+" min="0" name="requisitodos" max="10" class="validate center"  onblur="sumaCalif();" required>
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -113,7 +113,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>3.- Aplica las competencias para la realización del proyecto</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="tercera" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="tercera" type="number" pattern="[0-9]+" min="0" max="10" class="validate center"  onblur="sumaCalif();" required name="requisitotres">
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -125,7 +125,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>4.- Es dedicado y proactivo en los trabajos encomendados</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="cuarta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="cuarta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center"  onblur="sumaCalif();" required name="requisitocuatro">
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -137,7 +137,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>5.- Cumple con los objetivos correspondientes al proyecto</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="quinta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="quinta" type="number" pattern="[0-9]+" min="0" max="10" class="validate center"  onblur="sumaCalif();" required name="requisitocinco">
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -149,7 +149,7 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>6.- Entrega en tiempo y forma el informe técnico</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="sexta" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="nombre" onblur="sumaCalif();" required>
+							        	<input id="sexta" type="number" pattern="[0-9]+" min="0" max="5" class="validate center"  onblur="sumaCalif();" required name="requisitoseis">
 							         	<label for="ab" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
@@ -164,6 +164,14 @@ $noControl=$_REQUEST['noControl'];
 							        	<input id="calificacion" type="number" pattern="[0-9]+" min="0" max="5" class="validate center" name="calificacion" required readonly value="0">
 						        	</div>
 						        </div>
+						        <div class="row">
+					      		<div class="col m12">
+					      			<h5>Observaciones</h5>
+					      		</div>
+						        	<div class="input-field col m12">
+						        		<textarea id="textarea1" class="materialize-textarea" length="120" name="observaciones"></textarea>
+					        		</div>
+					        	</div>
 						        <a class="waves-effect waves-light btn red right" href="concluir.php" type="reset">Cancelar</a>
 						      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
 	  							</button>

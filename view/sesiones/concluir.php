@@ -64,8 +64,8 @@
          						 ?>
 								<tr>
 									<td><?php echo $rows['nombreResidente']?></td>
-									<td><a href="calificar.php?idProyecto=<?php echo $idProyecto;?>&noControl=<?php echo $rows['noControl']?>" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
-									<td><a href="" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
+									<td><a target="_bank" href="calificar.php?idProyecto=<?php echo $idProyecto;?>&noControl=<?php echo $rows['noControl']?>" class="btn tooltipped blue"  data-position="bottom" data-delay="50" data-tooltip="Calificar"><i class="material-icons">playlist_add_check</i></a></td>
+									<td><a href="reportes/reporteCalificacion.php?idProyecto=<?php echo $idProyecto;?>&noControl=<?php echo $rows['noControl']?>" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
 						            <?php 
           						}   

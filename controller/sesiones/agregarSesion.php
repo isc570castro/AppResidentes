@@ -8,7 +8,6 @@ $link=$objConex->conectarse();
 $sqlmaxSesion= mysql_query("select max(noSesion) from sesiones where idProyecto=$idProyecto", $link) or die(mysql_error());
 $rows = mysql_fetch_array($sqlmaxSesion);
 $noSesion=$rows['max(noSesion)']+1;
-
 $sql = mysql_query("INSERT INTO sesiones
 		VALUES ('$noSesion','$idProyecto','$fecha','$hora','','','Pendiente')", $link) or die(mysql_error());
 if (!$sql){
