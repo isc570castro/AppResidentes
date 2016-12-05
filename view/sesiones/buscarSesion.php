@@ -1,9 +1,9 @@
 <?php
-	$nombreProyecto=$_POST['nombreProyecto'];
+ 	$nombreProyecto=$_POST['nombreProyecto'];
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT  *  FROM sesiones, proyecto WHERE (sesiones.idProyecto=proyecto.idProyecto) and sesiones.estado='Pendiente' and nombreProecto like '%$nombreProyecto%'", $link) or die(mysql_error());					
+	$sql = mysql_query("SELECT  *  FROM sesiones, proyecto WHERE (sesiones.idProyecto=proyecto.idProyecto) and sesiones.estado='Pendiente' and nombreProyecto like '%$nombreProyecto%'", $link) or die(mysql_error());					
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Búsqueda | SGR</title>
+	<title>Relaciones | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -36,8 +36,8 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li class="active"><a href="sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li ><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href=""><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -51,15 +51,15 @@
 			       		<div class="col m12">
 			       			<form action="buscarSesion.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required name="nombreProyecto" value=<?php echo $nombreProyecto; ?>>
-          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i>Buscar por sesión</label>
+          							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
+          							<label for="search" style="font-size: 20px;"><i class="material-icons">search</i> Buscar por proyecto</label>
           							<i class="material-icons">close</i>
 
         						</div>
       						</form>
       					</div>
       					<div class="col m12 center">
-				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
+				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Nueva sesion</a>
 						</div>
 					</div>
 					<div class="row">
@@ -78,10 +78,11 @@
 						        while ($rows = mysql_fetch_array($sql)){   
 								?>
 								<tr>
+									
 									<td><?php echo $rows ['nombreProyecto']; ?></td>
 									<td><?php echo $rows ['fecha']; ?></td>
 									<td><?php echo $rows ['hora']; ?></td>
-						          	<td><a href="historial.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						          	<td><a href="anotaciones.php?idProyecto=<?php echo $rows['idProyecto']?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
 						         </tr>
 						    	<?php 
 								}

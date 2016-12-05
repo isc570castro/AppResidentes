@@ -3,7 +3,8 @@
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM proyecto where nombreProyecto like'%$nombreProyecto%'", $link) or die(mysql_error());	?>
+	$sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto like '%$nombreProyecto%';" , $link) or die(mysql_error());					
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Búsqueda | SGR</title>
+	<title>Proyectos | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -45,13 +46,13 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Sesiones</H3>
+			       	<H3 align="center">Proyectos</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form action="" method="POST" enctype="multipart/form-data" name="frmBuscar">
+			       			<form action="buscarProyecto.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto?>">
-          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i>Buscar por proyecto</label>
+          							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
+          							<label for="search"  style="font-size: 20px;"><i class="material-icons">search</i> Buscar por proyectos</label>
           							<i class="material-icons">close</i>
 
         						</div>

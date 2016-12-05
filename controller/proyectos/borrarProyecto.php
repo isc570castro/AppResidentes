@@ -1,9 +1,9 @@
 <?php
-	$nombreProyecto=$_POST['nombreProyecto'];
+	$idProyecto=$_GET['idProyecto'];
 	include "../../model/conexion.php";
 $objConex = new Conexion();
 $link=$objConex->conectarse();
-$sql = mysql_query("DELETE FROM proyecto WHERE nombreProyecto='$nombreProyecto'", $link) or die(mysql_error());
+$sql = mysql_query("DELETE FROM proyecto WHERE idProyecto='$idProyecto'", $link) or die(mysql_error());
 if (!$sql){
 	die("<p>Fallo la baja de residente ".mysql_error()."</p>");
 	mysql_close($link);

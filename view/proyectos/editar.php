@@ -87,17 +87,58 @@
 						        	<input id="first_name" type="text" class="validate" name="asesorInterno" value="<?php echo $asesorInterno; ?>">
 					        	</div>
 					      	</div>
+					      		<h4><i class="material-icons left" style="font-size: 40px;">date_range</i>Periodo del proyecto</h4>
+					    	<div class="divider"></div>
 					      	<div class="row">
 					      		<div class="col m2">
-					      			<h5>Periodo del proyecto</h5>
+					      			<h5>Fecha de inicio del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m5">
-						        	<input id="a" type="date" class="datepicker" name="fechaInicio" required>
-						         	<label for="a">Fecha de inicio</label>
+						        	<select id="a" name="mesInicio">
+      									<option value="<?php echo $rows['mesInicio']?>" disabled selected><?php echo $rows['mesInicio'];?></option>
+      									<option value="Enero">Enero</option>
+      									<option value="Febrero">Febrero</option>
+      									<option value="Marzo">Marzo</option>
+      									<option value="Abril">Abril</option>
+      									<option value="Mayo">Mayo</option>
+      									<option value="Junio">Junio</option>
+      									<option value="Julio">Julio</option>
+      									<option value="Agosto">Agosto</option>
+      									<option value="Septiembre">Septiembre</option>
+      									<option value="Octubre">Octubre</option>
+      									<option value="Noviembre">Noviembre</option>
+      									<option value="Diciembre">Diciembre</option>
+    								</select>
 					        	</div>
 								<div class="input-field col m5">
-						        	<input id="a" type="date" class="datepicker" name="fechaFin" required>
-						         	<label for="a">Fecha de finalización</label>
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearInicio" required value="<?php echo $rows['yearInicio']?>">
+						         	<label for="a" data-error="Solo se aceptan numeros">Año de inicio</label>
+					        	</div>
+					      	</div>
+					      	<div class="row">
+					      		<div class="col m2">
+					      			<h5>Fecha de fin del proyecto</h5>
+					      		</div>
+						        <div class="input-field col m5">
+						        	<select id="a" name="mesFin">
+      									<option value="<?php echo $rows['mesFin']?>" disabled selected><?php echo $rows['mesFin'];?></option>
+      									<option value="Enero">Enero</option>
+      									<option value="Febrero">Febrero</option>
+      									<option value="Marzo">Marzo</option>
+      									<option value="Abril">Abril</option>
+      									<option value="Mayo">Mayo</option>
+      									<option value="Junio">Junio</option>
+      									<option value="Julio">Julio</option>
+      									<option value="Agosto">Agosto</option>
+      									<option value="Septiembre">Septiembre</option>
+      									<option value="Octubre">Octubre</option>
+      									<option value="Noviembre">Noviembre</option>
+      									<option value="Diciembre">Diciembre</option>
+    								</select>
+					        	</div>
+								<div class="input-field col m5">
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearFin" required value="<?php echo $rows['yearFin']?>">
+						         	<label for="a" data-error="Solo se aceptan numeros">Año de fin</label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">domain</i>Datos de la empresa</h4>

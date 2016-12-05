@@ -48,7 +48,7 @@
 			       	<H3 align="center">Sesiones</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form action="buscarProyecto.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
+			       			<form action="buscarSesion.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
           							<input id="search" type="search" required name="nombreProyecto">
           							<label for="search" style="font-size: 20px;"><i class="material-icons">search</i> Buscar por proyecto</label>
@@ -81,7 +81,7 @@
 									<td><?php echo $rows ['nombreProyecto']; ?></td>
 									<td><?php echo $rows ['fecha']; ?></td>
 									<td><?php echo $rows ['hora']; ?></td>
-						          	<td><a href="historial.php?idProyecto=<?php echo $rows['idProyecto']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						          	<td><a href="anotaciones.php?idProyecto=<?php echo $rows['idProyecto']?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
 						         </tr>
 						    	<?php 
 								}

@@ -135,7 +135,7 @@
 					      		</div>
 						        <div class="input-field col m10">
 						        	<select id="a" name="carrera" required>
-      									<option value="No definido" disabled selected>Elija una carrera...</option>
+      									<option value="<?php echo $rows['carrera']; ?>" disabled selected><?php echo $rows['carrera']; ?></option>
       									<option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
       									<option value="Ingeniería en Informática">Ingeniería en Informática</option>
       									<option value="Ingeniería en Gestion Empresarial">Ingeniería en Gestion Empresarial</option>

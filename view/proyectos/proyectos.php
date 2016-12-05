@@ -87,8 +87,8 @@
 										<td><?php echo $rows ['direccionEmpresa']; ?></td>
 										<td><?php echo $rows ['telefonoEmpresa']; ?></td>
 										<td><?php echo $rows ['estado']; ?></td>
-										<td><a href="" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar proyecto"><i class="material-icons">edit</i></a>
-										<br/><br/><a onclick="" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar proyecto"><i class="material-icons">cancel</i></a></td>
+										<td><a href="editar.php?idProyecto=<?php echo $rows['idProyecto'];?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar proyecto"><i class="material-icons">edit</i></a>
+										<br/><br/><a onclick="" href="../../controller/proyectos/borrarProyecto.php?idProyecto=<?php echo $rows['idProyecto'];?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar proyecto"><i class="material-icons">cancel</i></a></td>
 						          	</tr>
 									    <?php 
 											}

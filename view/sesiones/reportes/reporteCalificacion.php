@@ -29,6 +29,7 @@ $link = $objConex->conectarse();
  $nombreProyecto=$rows['nombreProyecto'];
  $nombreEmpresa=$rows['nombreEmpresa'];
  $carrera=$rows['carrera'];
+  $periodo=$rows['periodo'];
 require_once('../../../src/tcpdf/tcpdf.php');
 
 
@@ -141,7 +142,7 @@ $pdf->SetFont('helvetica', '', 10);
       <td width="525"><b>Carrera: </b>'.$carrera.'</td>
      </tr>
      <tr>
-      <td width="525"><b>Periodo de realización de la residencia profesional: </b>Enero - Junio 2017</td>
+      <td width="525"><b>Periodo de realización de la residencia profesional: </b>'.$periodo.'</td>
      </tr>
      <tr><td><br><br></td></tr>
      </table>';
