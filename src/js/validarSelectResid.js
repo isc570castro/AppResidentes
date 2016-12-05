@@ -1,4 +1,4 @@
-function validarSelect(){
+function validarSelectResid(){
    	var indiceSemestre = document.frmAgregar.semestre.selectedIndex;
 	var indiceCarrera=document.frmAgregar.carrera.selectedIndex;
 	if(indiceSemestre==0){

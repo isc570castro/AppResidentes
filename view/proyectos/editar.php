@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Agregar proyecto | SGR</title>
+	<title>Editar proyecto | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -85,6 +85,19 @@
 					      		</div>
 						        <div class="input-field col m10">
 						        	<input id="first_name" type="text" class="validate" name="asesorInterno" value="<?php echo $asesorInterno; ?>">
+					        	</div>
+					      	</div>
+					      	<div class="row">
+					      		<div class="col m2">
+					      			<h5>Periodo del proyecto</h5>
+					      		</div>
+						        <div class="input-field col m5">
+						        	<input id="a" type="date" class="datepicker" name="fechaInicio" required>
+						         	<label for="a">Fecha de inicio</label>
+					        	</div>
+								<div class="input-field col m5">
+						        	<input id="a" type="date" class="datepicker" name="fechaFin" required>
+						         	<label for="a">Fecha de finalización</label>
 					        	</div>
 					      	</div>
 					      	<h4><i class="material-icons left" style="font-size: 40px;">domain</i>Datos de la empresa</h4>

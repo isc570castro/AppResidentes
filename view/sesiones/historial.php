@@ -94,9 +94,9 @@
 									<td><?php echo $rows ['observaciones']; ?></td>
 									<td><?php echo $rows ['avances']; ?></td>
 									<td><?php echo $rows ['estado']; ?></td>
-						          	<td><a href="anotaciones.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesion"><i class="material-icons">input</i></a></td>
-						          	<td><a onclick="return confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a></td>
-						          	<td><a href="residentes.php?noSesion=<?php echo $rows['noSesion'];?>&idProyecto=<?php echo $idProyecto;?>" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
+						          	<td><a href="anotaciones.php?idProyecto=<?php echo $idProyecto; ?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesion"><i class="material-icons">input</i></a>
+						          	<br><br><a onclick="return confirm()" href="../../controller/sesiones/borrarSesion.php?noSesion=<?php echo $rows['noSesion']?>&idProyecto=<?php echo $idProyecto?>" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar sesion"><i class="material-icons">cancel</i></a>
+						          	<br><br><a href="residentes.php?noSesion=<?php echo $rows['noSesion'];?>&idProyecto=<?php echo $idProyecto;?>" class="btn tooltipped green accent-3" data-position="bottom" data-delay="50" data-tooltip="Reporte"><i class="material-icons">assignment</i></a></td>
 						         </tr>
 						        <?php
 						    }

@@ -56,7 +56,6 @@
                         <tr>
                             <th>Nombre del alumno</th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

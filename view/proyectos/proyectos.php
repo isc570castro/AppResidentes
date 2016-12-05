@@ -50,14 +50,8 @@
         						</div>
       						</form>
       					</div>
-						<div class="col m4 center">
+						<div class="col m12 center">
 				    		<a href="agregar.html" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
-						</div>
-						<div class="col m4 center">
-				    		<a href="eliminar.php" class="waves-effect waves-light btn-large red z-depth-3"><i class="material-icons left">cancel</i>Eliminar</a>
-						</div>
-						<div class="col m4 center">
-				    		<a href="modificar.php" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
 						</div>
 					</div>
 					<div class="row">
@@ -73,29 +67,32 @@
 						              	<th>Dirección de la empresa</th>
 						              	<th>Teléfono de la empresa</th>
 						              	<th>Estado</th>
+						              	<th></th>
 						          	</tr>
 						        </thead>
 						        <tbody>
 						          	<tr>
-<?php
-include "../../model/conexion.php";
-$objConex = new Conexion();
-$link=$objConex->conectarse();
-$sql = mysql_query("SELECT * FROM proyecto;" , $link) or die(mysql_error());
-								while ($rows = mysql_fetch_array($sql)){   
-?>
-									<td><?php echo $rows ['nombreProyecto']; ?></td>
-									<td><?php echo $rows ['asesorExterno']; ?></td>
-									<td><?php echo $rows ['asesorInterno']; ?></td>
-									<td><?php echo $rows ['nombreEmpresa']; ?></td>
-									<td><?php echo $rows ['duenoEmpresa']; ?></td>
-									<td><?php echo $rows ['direccionEmpresa']; ?></td>
-									<td><?php echo $rows ['telefonoEmpresa']; ?></td>
-									<td><?php echo $rows ['estado']; ?></td>
+										<?php
+											include "../../model/conexion.php";
+											$objConex = new Conexion();
+											$link=$objConex->conectarse();
+											$sql = mysql_query("SELECT * FROM proyecto;" , $link) or die(mysql_error());
+																			while ($rows = mysql_fetch_array($sql)){   
+										?>
+										<td><?php echo $rows ['nombreProyecto']; ?></td>
+										<td><?php echo $rows ['asesorExterno']; ?></td>
+										<td><?php echo $rows ['asesorInterno']; ?></td>
+										<td><?php echo $rows ['nombreEmpresa']; ?></td>
+										<td><?php echo $rows ['duenoEmpresa']; ?></td>
+										<td><?php echo $rows ['direccionEmpresa']; ?></td>
+										<td><?php echo $rows ['telefonoEmpresa']; ?></td>
+										<td><?php echo $rows ['estado']; ?></td>
+										<td><a href="" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Editar proyecto"><i class="material-icons">edit</i></a>
+										<br/><br/><a onclick="" class="btn tooltipped red" data-position="bottom" data-delay="50" data-tooltip="Eliminar proyecto"><i class="material-icons">cancel</i></a></td>
 						          	</tr>
-						    <?php 
-}
-						    ?>
+									    <?php 
+											}
+									    ?>
 						        </tbody>
 			      			</table>
 						</div>

@@ -51,13 +51,13 @@ $idProyecto=$_REQUEST['idProyecto'];
 					      			<h5>Avances</h5>
 					      		</div>
 						        <div class="input-field col m12">
-						        	<textarea id="textarea1" class="materialize-textarea" length="120" name="avances"></textarea>
+						        	<textarea id="textarea1" class="materialize-textarea" length="120" maxlength="120" name="avances"></textarea>
 					        	</div>
 					        	<div class="col m12">
 					      			<h5>Observaciones</h5>
 					      		</div>
 						        <div class="input-field col m12">
-						        	<textarea id="textarea1" class="materialize-textarea" length="120" name="observaciones"></textarea>
+						        	<textarea id="textarea2" class="materialize-textarea" length="120" maxlength="120" name="observaciones"></textarea>
 					        	</div>
 					      	</div>
 					      	<div class="row">
