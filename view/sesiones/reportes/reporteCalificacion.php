@@ -44,20 +44,7 @@ class MYPDF extends TCPDF {
 		// Set font*/
 		$this->SetFont('', 'B', 10);
 		    $tbl = '
-     <table border="1" cellpadding="2" cellspacing="0">
-     <tr style="">
-      <td width="15%" rowspan="3" align="center"><img src="../../../src/img/logoitz.png" width="50"></td>
-      <td width="55%" rowspan="2" align="center"><b>Nombre del documento: <br>Formato de evaluación</b></td>
-      <td width="30%" align="center"><b>Código: ITZ-AC-PO-004-06</b></td>
-     </tr>
-     <tr style="">
-      <td width="30%" align="center"><b>Revision 2</b></td>
-     </tr>
-     <tr style="">
-      <td width="55%" align="center"><b>Referencia a la Norma ISO 9001-2008 7.5.1</b></td>
-      <td width="30%" align="center"><b>Pagina 1 de 2</b></td>
-     </tr>
-     </table>';
+     ';
 		// Title
 		$this->writeHTML($tbl, false, false, false, false, '');
 	}
