@@ -74,10 +74,31 @@
 			      			</table>
 						</div>
 					</div>
+					<div class="row">
+				      	<a class="waves-effect waves-light btn red right" href="historial.php" type="reset">Cancelar</a>
+						<a class="btn waves-effect waves-light blue right" href="#modal1" name="action">Concluir
+	  					</a>
+	  					<div id="modal1" class="modal">
+							<div class="modal-content">
+								<h4>Advertencia</h4>
+								<p>¿Esta seguro que realmente quiere concluir el proyecto?</p>
+							</div>
+							<div class="modal-footer">
+								<a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+								<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Si</a>
+							</div>
+						</div>
+					</div>
 			    </div>
 			</div>
 		</div>
   	</div>
 </body>
+</script>
+<script type="text/javascript">
+	 $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
 </script>
 </html>

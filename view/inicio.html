@@ -22,7 +22,6 @@
 			</div>
 		</div>
 	</div>
-	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="#" class="brand-logo">Menu Principal</a>
@@ -78,5 +77,55 @@
 			</div>
 		</div>
   	</div>
+  	<div class="row">
+		<a class="waves-effect waves-light btn red right" href="historial.php" type="reset">Cancelar</a>
+		<a class="btn waves-effect waves-light blue right" href="#modal1" name="action">Concluir
+	  	</a>
+	  	<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h4>Sesiones pendientes</h4>
+				<table class="centered striped bordered z-depth-3">
+					<thead>
+						<tr>
+						    <th>Proyecto</th>
+						    <th>Fecha</th>
+						    <th>Hora</th>
+						    <th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Resorteras nucleares</td>
+							<td>XYZ</td>
+							<td>XYZ</td>
+						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						</tr>
+						<tr>
+							<td>Resorteras nucleares</td>
+							<td>XYZ</td>
+							<td>XYZ</td>
+						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						</tr>
+						<tr>
+							<td>Resorteras nucleares</td>
+							<td>XYZ</td>
+							<td>XYZ</td>
+						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						</tr>
+					</tbody>
+			    </table>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+			</div>
+		</div>
+	</div>
 </body>
+<script type="text/javascript">
+	 $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  	$('#modal1').modal('open');
+  	});
+</script>
 </html>
