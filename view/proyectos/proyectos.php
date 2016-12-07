@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +85,7 @@
 											include "../../model/conexion.php";
 											$objConex = new Conexion();
 											$link=$objConex->conectarse();
-											$sql = mysql_query("SELECT * FROM proyecto;" , $link) or die(mysql_error());
+											$sql = mysql_query("SELECT * FROM proyecto where estado='Proceso';" , $link) or die(mysql_error());
 																			while ($rows = mysql_fetch_array($sql)){   
 										?>
 										<td><?php echo $rows ['nombreProyecto']; ?></td>

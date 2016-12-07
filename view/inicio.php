@@ -1,3 +1,16 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../index.html');
+	}
+	include "../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT  *  FROM sesiones, proyecto WHERE (sesiones.idProyecto=proyecto.idProyecto) and sesiones.estado='Pendiente'", $link) or die(mysql_error());					
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +43,7 @@
         		<li><a href="proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
-        		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
+        		<li><a href="../controller/logout.php"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
   	</nav>
@@ -78,9 +91,6 @@
 		</div>
   	</div>
   	<div class="row">
-		<a class="waves-effect waves-light btn red right" href="historial.php" type="reset">Cancelar</a>
-		<a class="btn waves-effect waves-light blue right" href="#modal1" name="action">Concluir
-	  	</a>
 	  	<div id="modal1" class="modal">
 			<div class="modal-content">
 				<h4>Sesiones pendientes</h4>
@@ -94,25 +104,20 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Resorteras nucleares</td>
-							<td>XYZ</td>
-							<td>XYZ</td>
-						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
-						</tr>
-						<tr>
-							<td>Resorteras nucleares</td>
-							<td>XYZ</td>
-							<td>XYZ</td>
-						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
-						</tr>
-						<tr>
-							<td>Resorteras nucleares</td>
-							<td>XYZ</td>
-							<td>XYZ</td>
-						    <td><a class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
-						</tr>
-					</tbody>
+						        <?php
+						        while ($rows = mysql_fetch_array($sql)){   
+								?>
+								<tr>
+									
+									<td><?php echo $rows ['nombreProyecto']; ?></td>
+									<td><?php echo $rows ['fecha']; ?></td>
+									<td><?php echo $rows ['hora']; ?></td>
+						          	<td><a href="sesiones/anotaciones.php?idProyecto=<?php echo $rows['idProyecto']?>&noSesion=<?php echo $rows['noSesion']?>" class="btn tooltipped blue" data-position="bottom" data-delay="50" data-tooltip="Abrir sesiones"><i class="material-icons">input</i></a></td>
+						         </tr>
+						    	<?php 
+								}
+						    	?>
+						        </tbody>
 			    </table>
 			</div>
 			<div class="modal-footer">

@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +131,7 @@
 					      		</div>
 						         <div class="input-field col m4">
 						        	<select name="semestre">
-      									<option value="<?php echo $semestre; ?>" disabled selected><?php echo $semestre; ?></option>
+      									<option value="<?php echo $semestre; ?>" selected><?php echo $semestre; ?></option>
       									<option value="Noveno">Noveno</option>
       									<option value="Decimo">Decimo</option>
       									<option value="Onceavo">Onceavo</option>
@@ -135,7 +144,7 @@
 					      		</div>
 						        <div class="input-field col m10">
 						        	<select id="a" name="carrera" required>
-      									<option value="<?php echo $rows['carrera']; ?>" disabled selected><?php echo $rows['carrera']; ?></option>
+      									<option value="<?php echo $rows['carrera']; ?>" selected><?php echo $rows['carrera']; ?></option>
       									<option value="Ingeniería en Sistemas Computacionales">Ingeniería en Sistemas Computacionales</option>
       									<option value="Ingeniería en Informática">Ingeniería en Informática</option>
       									<option value="Ingeniería en Gestion Empresarial">Ingeniería en Gestion Empresarial</option>

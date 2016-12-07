@@ -1,4 +1,11 @@
    <?php
+   	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
           $idProyecto=$_REQUEST['idProyecto'];
           include "../../model/conexion.php";
           $objConex = new Conexion();
@@ -75,7 +82,7 @@
 						</div>
 					</div>
 					<div class="row">
-				      	<a class="waves-effect waves-light btn red right" href="historial.php" type="reset">Cancelar</a>
+				      	<a class="waves-effect waves-light btn red right" href="historial.php?idProyecto=<?php echo $idProyecto; ?>" type="reset">Cancelar</a>
 						<a class="btn waves-effect waves-light blue right" href="#modal1" name="action">Concluir
 	  					</a>
 	  					<div id="modal1" class="modal">
@@ -85,7 +92,7 @@
 							</div>
 							<div class="modal-footer">
 								<a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
-								<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Si</a>
+								<a href="../../controller/proyectos/concluirProyecto.php?idProyecto=<?php echo $idProyecto;?>" class=" modal-action modal-close waves-effect waves-green btn-flat">Si</a>
 							</div>
 						</div>
 					</div>

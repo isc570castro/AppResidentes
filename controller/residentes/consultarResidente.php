@@ -1,4 +1,11 @@
 <?php
+session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 $noControl=$_POST['noControl'];
 include "../../model/conexion.php";
 $objConex = new Conexion();
@@ -34,7 +41,7 @@ $sql = mysql_query("SELECT * FROM residente WHERE noControl like '%$noControl%';
     	<div class="nav-wrapper container">
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
+        		<li class="active"><a href="../../view/residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../../view/proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../../view/relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../../view/sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>

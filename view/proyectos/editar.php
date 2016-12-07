@@ -1,3 +1,31 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+	$idProyecto=$_REQUEST['idProyecto'];
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT * FROM proyecto WHERE idProyecto='$idProyecto';" , $link) or die(mysql_error());				
+	$rows = mysql_fetch_array($sql);
+	$nombreProyecto=$rows['nombreProyecto'];
+ 	$asesorExterno=$rows['asesorExterno'];
+ 	$asesorInterno=$rows['asesorInterno'];
+	$nombreEmpresa=$rows['nombreEmpresa'];
+	$duenoEmpresa=$rows['duenoEmpresa'];
+	$calle=$rows['calle'];
+	$numero=$rows['numero'];
+	$colonia=$rows['colonia'];
+	$cp=$rows['cp'];
+	$telefono=$rows['telefonoEmpresa'];
+	$estado=$rows['estado'];
+	$mesInicio=$rows['mesInicio'];
+	$mesFin=$rows['mesFin'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,25 +63,6 @@
       		</ul>
     	</div>
   	</nav>
-<?php
-	$idProyecto=$_REQUEST['idProyecto'];
-	include "../../model/conexion.php";
-	$objConex = new Conexion();
-	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM proyecto WHERE idProyecto='$idProyecto';" , $link) or die(mysql_error());				
-	$rows = mysql_fetch_array($sql);
-	$nombreProyecto=$rows['nombreProyecto'];
- 	$asesorExterno=$rows['asesorExterno'];
- 	$asesorInterno=$rows['asesorInterno'];
-	$nombreEmpresa=$rows['nombreEmpresa'];
-	$duenoEmpresa=$rows['duenoEmpresa'];
-	$calle=$rows['calle'];
-	$numero=$rows['numero'];
-	$colonia=$rows['colonia'];
-	$cp=$rows['cp'];
-	$telefono=$rows['telefonoEmpresa'];
-	$estado=$rows['estado'];
-?>
   	<div class="container">
 	 	<div class="row">
 			<div class="col m12">
@@ -95,7 +104,7 @@
 					      		</div>
 						        <div class="input-field col m5">
 						        	<select id="a" name="mesInicio">
-      									<option value="<?php echo $rows['mesInicio']?>" disabled selected><?php echo $rows['mesInicio'];?></option>
+      									<option value="<?php echo $mesInicio; ?>" selected><?php echo $mesInicio; ?></option>
       									<option value="Enero">Enero</option>
       									<option value="Febrero">Febrero</option>
       									<option value="Marzo">Marzo</option>
@@ -121,7 +130,7 @@
 					      		</div>
 						        <div class="input-field col m5">
 						        	<select id="a" name="mesFin">
-      									<option value="<?php echo $rows['mesFin']?>" disabled selected><?php echo $rows['mesFin'];?></option>
+      									<option value="<?php echo $mesFin;?>" selected><?php echo $mesFin;?></option>
       									<option value="Enero">Enero</option>
       									<option value="Febrero">Febrero</option>
       									<option value="Marzo">Marzo</option>

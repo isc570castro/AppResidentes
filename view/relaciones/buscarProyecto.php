@@ -1,9 +1,17 @@
 <?php
+	<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 	$nombreProyecto=$_POST['nombreProyecto'];
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT * FROM proyecto where nombreProyecto like'%$nombreProyecto%'", $link) or die(mysql_error());	?>
+	$sql = mysql_query("SELECT * FROM proyecto where nombreProyecto like'%$nombreProyecto%' and estado='proceso'", $link) or die(mysql_error());	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +53,7 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Sesiones</H3>
+			       	<H3 align="center">Proyectos</H3>
 			       	<div class="row">
 			       		<div class="col m12">
 			       			<form action="" method="POST" enctype="multipart/form-data" name="frmBuscar">

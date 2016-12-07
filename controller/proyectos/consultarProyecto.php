@@ -1,4 +1,11 @@
 <?php
+session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 $nombreProyecto=$_POST['nombreProyecto'];
 include "../../model/conexion.php";
 $objConex = new Conexion();
@@ -35,7 +42,7 @@ $sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto LIKE '%$nombrePr
       		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../../view/residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li class="active"><a href="../../view/proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../../view/relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../../view/sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
@@ -84,9 +91,9 @@ $sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto LIKE '%$nombrePr
 						        </thead>
 						        <tbody>
 						          	<tr>
-<?php
+								<?php
 								while ($rows = mysql_fetch_array($sql)){   
-?>
+								?>
 									<td><?php echo $rows ['nombreProyecto']; ?></td>
 									<td><?php echo $rows ['asesorExterno']; ?></td>
 									<td><?php echo $rows ['asesorInterno']; ?></td>

@@ -33,7 +33,7 @@ if (($_POST["usuario"] == '') or ( $_POST["password"] == '')) {
 				alert('Bienvenido " .$_SESSION['login']. "');
 				</script>";
 		echo 	"<script type='text/javascript'>
-				window.location='../view/inicio.html'
+				window.location='../view/inicio.php'
 				</script>";
 	}
 	mysql_close($link);

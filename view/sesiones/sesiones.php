@@ -1,4 +1,11 @@
 <?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
@@ -58,7 +65,7 @@
       						</form>
       					</div>
       					<div class="col m12 center">
-				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Nueva sesion</a>
+				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Historial de sesiones</a>
 						</div>
 					</div>
 					<div class="row">

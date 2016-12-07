@@ -1,4 +1,11 @@
 <?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 	$idProyecto=$_GET['idProyecto'];
 	include "../../model/conexion.php";
 $objConex = new Conexion();

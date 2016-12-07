@@ -1,4 +1,11 @@
 <?php 
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 	$idProyecto=$_REQUEST['idProyecto'];
  	$noSesion=$_REQUEST['noSesion'];
  	$observaciones=$_POST['observaciones'];

@@ -1,4 +1,5 @@
 <?php
+	<?php
 	session_start();
 	$usuario=$_SESSION['login'];
 	$seguridad = $_SESSION['seguridad'];
@@ -6,11 +7,12 @@
 	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
 	header('Location: ../../index.html');
 	}
+?>
+	$noControl=$_POST['noControl'];
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
-	$sql = mysql_query("SELECT  * FROM proyecto, residente, asignaciones where proyecto.idProyecto=asignaciones.idProyecto and residente.noControl=asignaciones.noControl", $link) or die(mysql_error());	
-?>
+	$sql = mysql_query("SELECT * FROM proyecto,asignaciones,residente where proyecto.idProyecto=asignaciones.idProyecto and residente.noControl=asignaciones.noControl and residente.noControl like '%$noControl%'", $link) or die(mysql_error());	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Asignaciones | SGR</title>
+	<title>Búsqueda | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -42,7 +44,7 @@
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li class="active"><a href=""><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href="relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
@@ -52,34 +54,30 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			       	<H3 align="center">Asignaciones</H3>
+			       	<H3 align="center">Relaciones</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form action="buscarRelaciones.php" method="POST">
+			       			<form action="buscarRelaciones.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" name="noControl">
-          							<label for="search"  style="font-size: 20px;"><i class="material-icons">search</i> Buscar asignaciones por No. de Ctrl.</label>
+          							<input id="search" type="search" required name="noControl" value="<?php echo $noControl?>">
+          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar asignaciones por No. de Ctrl.</label>
           							<i class="material-icons">close</i>
+
         						</div>
       						</form>
       					</div>
-						<div class="col m12 center">
-				    		<a href="agregar.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Asignar proyecto</a>
-						</div>
 					</div>
 					<div class="row">
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
-						              	<th>Nombre del alumno</th>
-						              	<th>Proyecto asignado</th>
-						              	<th></th>
+						              	<th>Proyecto</th>
 						              	<th></th>
 						          	</tr>
 						        </thead>
-						        <tbody>						         
-						          	<?php while ($rows = mysql_fetch_array($sql)){ ?>
+						        <tbody>					 
+								<?php while ($rows = mysql_fetch_array($sql)){ ?>
 						          	<tr>
 						          		<td><?php echo $rows['nombreResidente'];?></td>
 						          		<td><?php echo $rows['nombreProyecto'];?></td>

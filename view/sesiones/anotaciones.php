@@ -1,6 +1,18 @@
 <?php 
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
 $noSesion=$_REQUEST['noSesion'];
 $idProyecto=$_REQUEST['idProyecto'];
+ include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT  *  FROM sesiones WHERE idProyecto='$idProyecto' and noSesion = '$noSesion'", $link) or die(mysql_error());	
+  $rows = mysql_fetch_array($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,6 +78,7 @@ $idProyecto=$_REQUEST['idProyecto'];
 					      		</div>
 						        <div class="input-field col m3">
 						        	<select name="estado">
+						        		<option value="<?php echo $rows['estado'];?>"><?php echo $rows['estado'];?></option>
 						        		<option value="Pendiente">Pendiente</option>
 						        		<option value="Concluido">Concluido</option>
 						        		<option value="Cancelado">Cancelado</option>
