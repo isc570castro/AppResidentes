@@ -89,8 +89,8 @@ $noControl=$_REQUEST['noControl'];
 						      			<h5>1.- Mostró responsabilidad y compromiso en la Residencia Profesional</h5>
 						      		</div>
 							        <div class="input-field col m1">
-							        	<input id="primera" type="number" pattern="[0-9]+" min="0" max="5" name="requisitouno" class="validate center" onblur="sumaCalif();" required >
-							         	<label for="ab" data-error="Dato inválido"></label>
+							        	<input id="primera" type="number" pattern="[0-9]+" min="0" max="5" name="requisitouno" class="validate center" onblur="sumaCalif();" required>
+							         	<label for="primera" data-error="Dato inválido"></label>
 						        	</div>
 						        	<div class="col m2">
 						        		<h5>De 0 a 5 puntos</h5>

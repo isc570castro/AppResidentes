@@ -24,9 +24,15 @@
   						</div>
 					    <form class="col s12" method="POST">
 					     	<div class="row">
+        						<div class="input-field col s12">
+						        	<input disabled value="Pregunta secreta" id="disabled" type="text" class="validate">
+						          	<label for="disabled">Pregunta</label>
+						        </div>
+						    </div>
+					     	<div class="row">
 					        	<div class="input-field col s12">
 					          		<input id="username" type="text" class="validate" name="username">
-					          		<label for="username">Nombre de usuario</label>
+					          		<label for="username">Respuesta</label>
 					        	</div>
 					      	</div>
 					      	<button class="btn waves-effect waves-light right" type="submit" name="action">Aceptar
@@ -34,7 +40,7 @@
 					    </form>
 					</div>
         		</div>
-  			</div>
+
   		</div>
   	</div>
 </body>
