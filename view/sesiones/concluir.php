@@ -38,7 +38,7 @@
 	</div>
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
-      		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
+      		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
@@ -88,7 +88,7 @@
 	  					<div id="modal1" class="modal">
 							<div class="modal-content">
 								<h4>Advertencia</h4>
-								<p>¿Esta seguro que realmente quiere concluir el proyecto?</p>
+								<p>¿Esta seguro que desea concluir el proyecto?</p>
 							</div>
 							<div class="modal-footer">
 								<a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>

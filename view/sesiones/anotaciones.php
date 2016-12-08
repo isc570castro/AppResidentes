@@ -41,7 +41,7 @@ $idProyecto=$_REQUEST['idProyecto'];
 	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
-      		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
+      		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
@@ -86,8 +86,7 @@ $idProyecto=$_REQUEST['idProyecto'];
 
 					        	</div>
 					      	</div>
-  							<button class="btn waves-effect waves-light red right">Cancelar
-  							</button>
+  							<a class="btn waves-effect waves-light red right" href="historial.php?idProyecto=<?php  echo $idProyecto; ?>">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
   							</button>
 					    </form>
