@@ -1,4 +1,12 @@
-
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +15,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Eliminar relación | SGR</title>
+	<title>Actualizar proyecto | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -23,35 +31,52 @@
 			</div>
 		</div>
 	</div>
+	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
-        		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li class="active"><a href="relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li class="active"><a href="proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
   	</nav>
+	<?php
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT * FROM proyecto" , $link) or die(mysql_error());				
+	
+	
+	?>
   	<div class="container">
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			    	<H3 align="center">Eliminar relación</H3>
+			    	<H3 align="center">Actualizar proyecto</H3>
 				  	<div class="row">
-					    <form class="col s12">
-					    	<h4><i class="material-icons left" style="font-size: 40px;">cancel</i>Eliminar</h4>
+					    <form class="col s12" action="editar.php" method="POST" enctype="multipart/form-data" name="frmModificar">
+					    	<h4><i class="material-icons left" style="font-size: 40px;">cached</i>Actualizar</h4>
 					    	<div class="divider"></div>
 					      	<div class="row">
 					      		<div class="col m2">
-					      			<h5>Relación</h5>
+					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate">
+						        <select name="idProyecto">
+								<?php					        	
+								while ($rows = mysql_fetch_array($sql)){   
+								?>
+      								<option value="<?php echo $rows['idProyecto']; ?>"><?php echo $rows['nombreProyecto']; ?></option>
+    							<?php
+								}
+    							?>
+    							</select>
 					        	</div>
-  							<a class="waves-effect waves-light btn red right" href="relaciones.html">Cancelar</a>
+  							<a class="waves-effect waves-light btn red right" href="proyectos.php">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
 					    </form>
 				 	 </div>
@@ -60,4 +85,11 @@
 		</div>
   	</div>
 </body>
+<script>
+	
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            
+</script>
 </html>

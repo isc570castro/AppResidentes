@@ -13,13 +13,8 @@ if (($_POST["usuario"] == '') or ( $_POST["password"] == '')) {
 	$objConex = new Conexion();
 	$link=$objConex->conectarse();
 	session_start();
-
-	$pass_encriptada1 = md5($password); //Encriptacion nivel 1
-	$pass_encriptada2 = crc32($pass_encriptada1); //Encriptacion nivel 1
-	$pass_encriptada3 = crypt($pass_encriptada2, "xtemp"); //Encriptacion nivel 2
-	$pass_encriptada4 = sha1("xtemp" . $pass_encriptada3); //Encriptacion nivel 3
 	$sql = mysql_query("SELECT usuario, password FROM usuario WHERE usuario='" .$user. "'
-					   AND password='$pass_encriptada4';" , $link) or die(mysql_error());
+					   AND password='".$password."';" , $link) or die(mysql_error());
 	$row=mysql_num_rows($sql);
 	if ($row == 0){
 			echo 	"<script type='text/javascript'>
@@ -38,10 +33,9 @@ if (($_POST["usuario"] == '') or ( $_POST["password"] == '')) {
 				alert('Bienvenido " .$_SESSION['login']. "');
 				</script>";
 		echo 	"<script type='text/javascript'>
-				window.location='../view/inicio.html'
+				window.location='../view/inicio.php'
 				</script>";
 	}
 	mysql_close($link);
 }
-
 ?>

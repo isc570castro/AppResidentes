@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +34,12 @@
 	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
-      		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
+      		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li class="active"><a href=""><i class="material-icons left">people</i>Residentes</a></li>
-        		<li><a href="../proyectos/proyectos.html"><i class="material-icons left">business_center</i>Proyectos</a></li>
-        		<li><a href="../relaciones/relaciones.html"><i class="material-icons left">repeat</i>Asignaciones</a></li>
-        		<li><a href="../sesiones/sesiones.html"><i class="material-icons left">date_range</i>Sesiones</a></li>
+        		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
+        		<li><a href="../relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
+        		<li><a href="../sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
         		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
@@ -42,10 +51,10 @@
 			       	<H3 align="center">Residentes</H3>
 			       	<div class="row">
 			       		<div class="col m12">
-			       			<form>
+			       			<form action="../../controller/residentes/consultarResidente.php" method="POST" enctype="multipart/form-data" name="frmBuscar">
         						<div class="input-field">
-          							<input id="search" type="search" required>
-          							<label for="search"><i class="material-icons">search</i></label>
+          							<input id="search" type="search" required name="noControl">
+          							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar por numero de control</label>
           							<i class="material-icons">close</i>
         						</div>
       						</form>
@@ -60,50 +69,44 @@
 				    		<a href="modificar.html" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
 						</div>
 					</div>
+					<?php
+					include "../../model/conexion.php";
+					$objConex = new Conexion();
+					$link=$objConex->conectarse();
+					$sql = mysql_query("SELECT * FROM residente;" , $link) or die(mysql_error());
+					echo ' 
 					<div class="row">
 						<div class="col m12">
 							<table class="centered striped bordered z-depth-3">
 						        <thead>
 						          	<tr>
+						              	<th>No. Ctrl</th>
 						              	<th>Nombre</th>
-						              	<th>Dirección</th>
+						              	<th>Direccion</th>
 						              	<th>Telefono</th>
-						              	<th>N. C.</th>
 						              	<th>Semestre</th>
 						              	<th>Carrera</th>
 						              	<th>E-mail</th>
 						          	</tr>
 						        </thead>
 						        <tbody>
-						          	<tr>
-						            	<td>Alvin Yakitori</td>
-						            	<td>Calle Albañiles #13</td>
-						            	<td>492-765-4321</td>
-						            	<td>12450987</td>
-						            	<td>7mo</td>
-						            	<td>ISC</td>
-						            	<td>alvin_yaki@hotmail.com</td>
-						          	</tr>
-						          	<tr>
-						            	<td>Javier Cuevas</td>
-						            	<td>Calle Pintores #69</td>
-						            	<td>492-123-4567</td>
-						            	<td>12450987</td>
-						            	<td>9no</td>
-						            	<td>ISC</td>
-						            	<td>javier_cue@hotmail.com</td>
-						          	</tr>
-						          	<tr>
-						            	<td>Carla Castañeda</td>
-						            	<td>Calle Caballos #43</td>
-						            	<td>492-765-8934</td>
-						            	<td>12450627</td>
-						            	<td>9no</td>
-						            	<td>ISC</td>
-						            	<td>carla_cast@hotmail.com</td>
-						          	</tr>
-						        </tbody>
-			      			</table>
+								<tr align="center">';
+								while ($rows = mysql_fetch_array($sql)){
+								echo '
+									<td> '.$rows['noControl'] .'</td>
+									<td> '.$rows['nombreResidente'] .'</td>
+									<td> '.$rows['direccion'] .'</td>
+									<td> '.$rows['telefono'] .'</td>
+									<td> '.$rows['semestre'] .'</td>
+     								<td> '.$rows['carrera'] .'</td>
+     								<td> '.$rows['correo'] .' </td>
+     							</tr>
+								';
+								}
+								echo '
+								<tbody>
+			      				</table>';
+?>
 						</div>
 					</div>
 			    </div>

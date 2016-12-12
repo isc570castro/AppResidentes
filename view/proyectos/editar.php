@@ -1,3 +1,31 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+	$idProyecto=$_REQUEST['idProyecto'];
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT * FROM proyecto WHERE idProyecto='$idProyecto';" , $link) or die(mysql_error());				
+	$rows = mysql_fetch_array($sql);
+	$nombreProyecto=$rows['nombreProyecto'];
+ 	$asesorExterno=$rows['asesorExterno'];
+ 	$asesorInterno=$rows['asesorInterno'];
+	$nombreEmpresa=$rows['nombreEmpresa'];
+	$duenoEmpresa=$rows['duenoEmpresa'];
+	$calle=$rows['calle'];
+	$numero=$rows['numero'];
+	$colonia=$rows['colonia'];
+	$cp=$rows['cp'];
+	$telefono=$rows['telefonoEmpresa'];
+	$estado=$rows['estado'];
+	$mesInicio=$rows['mesInicio'];
+	$mesFin=$rows['mesFin'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +34,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<script src="../../src/js/validarSelectProy.js"></script>
-	<title>Agregar proyecto | SGR</title>
+	<title>Editar proyecto | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -42,7 +69,7 @@
 			    <div class="card-panel white z-depth-3">
 			    	<H3 align="center">Agregar proyecto</H3>
 				  	<div class="row">
-					    <form class="col s12" action="../../controller/proyectos/registraProyecto.php" method="POST" enctype="multipart/form-data" name="frmAgregar">
+					    <form class="col s12" action="../../controller/proyectos/actualizarProyecto.php?idProyecto=<?php echo $idProyecto;?>" method="POST" enctype="multipart/form-data" name="frmAgregar">
 					    	<h4><i class="material-icons left" style="font-size: 40px;">work</i>Datos del proyecto</h4>
 					    	<div class="divider"></div>
 					      	<div class="row">
@@ -50,8 +77,7 @@
 					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreProyecto" required>
-						        	<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<input id="first_name" type="text" class="validate" name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -59,8 +85,7 @@
 					      			<h5>Asesor externo</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorExterno" required>
-						        	<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<input id="first_name" type="text" class="validate" name="asesorExterno" value="<?php echo $asesorExterno; ?>">
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -68,11 +93,10 @@
 					      			<h5>Asesor interno</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorInterno" required>
-						        	<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<input id="first_name" type="text" class="validate" name="asesorInterno" value="<?php echo $asesorInterno; ?>">
 					        	</div>
 					      	</div>
-					      	<h4><i class="material-icons left" style="font-size: 40px;">date_range</i>Periodo del proyecto</h4>
+					      		<h4><i class="material-icons left" style="font-size: 40px;">date_range</i>Periodo del proyecto</h4>
 					    	<div class="divider"></div>
 					      	<div class="row">
 					      		<div class="col m2">
@@ -80,7 +104,7 @@
 					      		</div>
 						        <div class="input-field col m5">
 						        	<select id="a" name="mesInicio">
-      									<option value="" disabled selected>Elija el mes de inicio...</option>
+      									<option value="<?php echo $mesInicio; ?>" selected><?php echo $mesInicio; ?></option>
       									<option value="Enero">Enero</option>
       									<option value="Febrero">Febrero</option>
       									<option value="Marzo">Marzo</option>
@@ -96,7 +120,7 @@
     								</select>
 					        	</div>
 								<div class="input-field col m5">
-						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearInicio" required data-toggle="validator">
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearInicio" required value="<?php echo $rows['yearInicio']?>">
 						         	<label for="a" data-error="Solo se aceptan numeros">Año de inicio</label>
 					        	</div>
 					      	</div>
@@ -106,7 +130,7 @@
 					      		</div>
 						        <div class="input-field col m5">
 						        	<select id="a" name="mesFin">
-      									<option value="" disabled selected>Elija el mes de fin...</option>
+      									<option value="<?php echo $mesFin;?>" selected><?php echo $mesFin;?></option>
       									<option value="Enero">Enero</option>
       									<option value="Febrero">Febrero</option>
       									<option value="Marzo">Marzo</option>
@@ -122,7 +146,7 @@
     								</select>
 					        	</div>
 								<div class="input-field col m5">
-						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearFin" required>
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearFin" required value="<?php echo $rows['yearFin']?>">
 						         	<label for="a" data-error="Solo se aceptan numeros">Año de fin</label>
 					        	</div>
 					      	</div>
@@ -133,8 +157,7 @@
 					      			<h5>Nombre</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreEmpresa" required>
-						        	<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<input id="first_name" type="text" class="validate" name="nombreEmpresa" value="<?php echo $nombreEmpresa; ?>">
 					        	</div>
 					      	</div>
 					    	<div class="row">
@@ -142,8 +165,7 @@
 					      			<h5>Dueño</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="duenoEmpresa" required>
-									<label for="a" data-error="Solo se aceptan letras"></label>
+						        	<input id="first_name" type="text" class="validate" name="duenoEmpresa" value="<?php echo $duenoEmpresa; ?>">
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -151,20 +173,20 @@
 					      			<h5>Dirección</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="calle" required>
-						         	<label for="a" data-error="Solo se aceptan letras">Calle</label>
+						        	<input id="first_name" type="text" class="validate" name="calle" value="<?php echo $calle; ?>">
+						         	<label for="first_name">Calle</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="numero" required>
-					          		<label for="a">Número</label>
+					          		<input id="last_name" type="number" class="validate" name="numero" value="<?php echo $numero; ?>">
+					          		<label for="last_name">Número</label>
 					        	</div>
 					        	<div class="input-field col m4">
-					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="colonia" required>
-					          		<label for="a" data-error="Solo se aceptan letras">Colonia</label>
+					          		<input id="last_name" type="text" class="validate" name="colonia" value="<?php echo $colonia; ?>">
+					          		<label for="last_name">Colonia</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="a" type="text" pattern="[0-9]+" length="5" maxlength="5" class="validate" name="cp" required>
-					          		<label for="a">C.P.</label>
+					          		<input id="last_name" type="text" class="validate" name="cp" value="<?php echo $cp; ?>">
+					          		<label for="last_name">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -172,11 +194,23 @@
 					      			<h5>Teléfono</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="a" type="text" pattern="[0-9]+" length="15" maxlength="15" class="validate" name="telefono">
+						        	<input id="first_name" type="number" class="validate" name="telefono" value="<?php echo $telefono; ?>">
 					        	</div>
 					      	</div>
+					      	<div class="row">
+					      		<div class="col m2">
+					      			<h5>Estado</h5>
+					      		</div>
+					      		<div class="input-field col m10">
+					      			<select name="estado">
+      								<option value="Proceso">Proceso</option>
+      								<option value="Cancelado">Cancelado</option>
+      								<option value="Concluido">Concluido</option>
+    								</select>
+    							</div>
+					      	</div>
   							<a class="waves-effect waves-light btn red right" href="proyectos.html" type="reset">Cancelar</a>
-					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action" onclick="return validarSelectProy();">Aceptar
+					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar
   							</button>
 					    </form>
 				 	 </div>
@@ -185,52 +219,11 @@
 		</div>
   	</div>
 </body>
-<script type="text/javascript">
-	$(document).ready(function() {
-    	$('select').material_select();
-  	});
-</script>
 <script>
-  $(document).ready(function () {
-$('#frmRegistro').bootstrapValidator({
-   /*feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },*/
-    fields: {
-        nombre: {
-            validators: {
-                stringLength: { min: 1},
-                 stringLength: { max: 15 },
-                notEmpty: { message:'El campo nombre es obligatorio'}
-            }
-        },
-         apellido: {
-            validators: {
-                stringLength: { min: 1 },
-                stringLength: { max: 15 },
-                notEmpty: { message:'El campo apellido es obligatorio'}
-            }
-        },
-         correo: {
-            validators: {
-                notEmpty: { message: 'El campo de e-mail es obligatorio' },
-               // emailAddress: { message: 'E-mail no valido' }
-            }
-        },
-   
-    }
-}).on('success.form.bv', function (e) {
-    $('#success_message').slideDown({ opacity: 'show' }, 'slow');
-    $('#contact_form').data('bootstrapValidator').resetForm();
-    e.preventDefault();
-    var $form = $(e.target);
-    var bv = $form.data('bootstrapValidator');
-    $.post($form.attr('action'), $form.serialize(), function (result) {
-        console.log(result);
-    }, 'json');
-});
-});
+	
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+            
 </script>
 </html>

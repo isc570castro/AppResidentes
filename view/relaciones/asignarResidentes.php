@@ -1,4 +1,19 @@
-
+<?php
+	<?php
+	session_start();
+	$usuario=$_SESSION['login'];
+	$seguridad = $_SESSION['seguridad'];
+	if (!isset($seguridad)) {
+	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	header('Location: ../../index.html');
+	}
+	$idProyecto=$_REQUEST['idProyecto'];
+	include "../../model/conexion.php";
+	$objConex = new Conexion();
+	$link=$objConex->conectarse();
+	$sql = mysql_query("SELECT nombreProyecto FROM proyecto where idProyecto='$idProyecto'", $link) or die(mysql_error());	
+	$rows = mysql_fetch_array($sql);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +22,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Eliminar relación | SGR</title>
+	<title>Asignar residentes | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -23,6 +38,7 @@
 			</div>
 		</div>
 	</div>
+	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
       		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
@@ -39,19 +55,18 @@
 	 	<div class="row">
 			<div class="col m12">
 			    <div class="card-panel white z-depth-3">
-			    	<H3 align="center">Eliminar relación</H3>
+			       	<H3 align="center">Asignar residente a <br> <?php echo $rows['nombreProyecto']?></H3>
 				  	<div class="row">
-					    <form class="col s12">
-					    	<h4><i class="material-icons left" style="font-size: 40px;">cancel</i>Eliminar</h4>
+					    <form class="col s12" action="../../controller/relaciones/asignar.php?idProyecto=<?php echo $idProyecto; ?>" method="POST" enctype="multipart/form-data" name="frmAsignar">
 					    	<div class="divider"></div>
 					      	<div class="row">
 					      		<div class="col m2">
-					      			<h5>Relación</h5>
+					      			<h5>Número de control</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate">
+						        	<input id="first_name" type="number" class="validate" name="noControl">
 					        	</div>
-  							<a class="waves-effect waves-light btn red right" href="relaciones.html">Cancelar</a>
+  							<a class="waves-effect waves-light btn  gren right" href="relaciones.php">Terminar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
 					    </form>
 				 	 </div>
