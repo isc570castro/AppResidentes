@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
+	<script src="../../src/js/confElim.js"></script>
 	<title>Asignaciones | SGR</title>
 </head>
 <body class="grey lighten-2">
@@ -38,7 +39,7 @@
 	
   	<nav class="z-depth-2 teal" role="navigation">
     	<div class="nav-wrapper container">
-      		<a href="../inicio.html" class="brand-logo">Menu Principal</a>
+      		<a href="../inicio.php" class="brand-logo">Menu Principal</a>
       		<ul id="nav-mobile" class="right hide-on-med-and-down">
         		<li><a href="../residentes/residentes.php"><i class="material-icons left">people</i>Residentes</a></li>
         		<li><a href="../proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
@@ -83,7 +84,7 @@
 						          	<tr>
 						          		<td><?php echo $rows['nombreResidente'];?></td>
 						          		<td><?php echo $rows['nombreProyecto'];?></td>
-						            	<td><a class="btn tooltipped red" href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>" data-position="bottom" data-delay="50" data-tooltip="Eliminar"><i class="material-icons">cancel</i></a></td>
+						            	<td><a class="btn tooltipped red" href="../../controller/relaciones/eliminarAsignacion.php?noControl=<?php echo $rows['noControl'];?>" data-position="bottom" data-delay="50" data-tooltip="Eliminar" onclick="return elimRel();"><i class="material-icons">cancel</i></a></td>
 						          	</tr>
 						         <?php } ?> 
 						        </tbody>
