@@ -190,4 +190,47 @@
     	$('select').material_select();
   	});
 </script>
+<script>
+  $(document).ready(function () {
+$('#frmRegistro').bootstrapValidator({
+   /*feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },*/
+    fields: {
+        nombre: {
+            validators: {
+                stringLength: { min: 1},
+                 stringLength: { max: 15 },
+                notEmpty: { message:'El campo nombre es obligatorio'}
+            }
+        },
+         apellido: {
+            validators: {
+                stringLength: { min: 1 },
+                stringLength: { max: 15 },
+                notEmpty: { message:'El campo apellido es obligatorio'}
+            }
+        },
+         correo: {
+            validators: {
+                notEmpty: { message: 'El campo de e-mail es obligatorio' },
+               // emailAddress: { message: 'E-mail no valido' }
+            }
+        },
+   
+    }
+}).on('success.form.bv', function (e) {
+    $('#success_message').slideDown({ opacity: 'show' }, 'slow');
+    $('#contact_form').data('bootstrapValidator').resetForm();
+    e.preventDefault();
+    var $form = $(e.target);
+    var bv = $form.data('bootstrapValidator');
+    $.post($form.attr('action'), $form.serialize(), function (result) {
+        console.log(result);
+    }, 'json');
+});
+});
+</script>
 </html>
