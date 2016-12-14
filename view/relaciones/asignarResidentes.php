@@ -1,5 +1,4 @@
 <?php
-	<?php
 	session_start();
 	$usuario=$_SESSION['login'];
 	$seguridad = $_SESSION['seguridad'];
@@ -66,7 +65,7 @@
 						        <div class="input-field col m10">
 						        	<input id="first_name" type="number" class="validate" name="noControl">
 					        	</div>
-  							<a class="waves-effect waves-light btn  gren right" href="relaciones.php">Terminar</a>
+  							<a class="btn waves-effect waves-light red right" href="relaciones.php">Cancelar</a>
 					      	<button class="btn waves-effect waves-light blue right" type="submit" name="action">Aceptar</button>
 					    </form>
 				 	 </div>
