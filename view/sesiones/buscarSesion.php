@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="../../src/materialize/fonts/material-design-icons/material-icons.css">
 	<script src="../../src/materialize/js/jquery.js"></script>
 	<script src="../../src/materialize/js/materialize.min.js"></script>
-	<title>Relaciones | SGR</title>
+	<title>Sesiones | SGR</title>
 </head>
 <body class="grey lighten-2">
 	<div class="container">
@@ -65,8 +65,11 @@
         						</div>
       						</form>
       					</div>
-      					<div class="col m12 center">
+      					<div class="col m6 center">
 				    		<a href="proyectos.php" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Nueva sesion</a>
+						</div>
+						<div class="col m6 center">
+					    	<a href="../../view/sesiones/sesiones.php" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">keyboard_arrow_left</i>Regresar</a>
 						</div>
 					</div>
 					<div class="row">

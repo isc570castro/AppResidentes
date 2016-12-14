@@ -63,14 +63,17 @@ $sql = mysql_query("SELECT * FROM residente WHERE noControl like '%$noControl%';
         						</div>
       						</form>
       					</div>
-						<div class="col m4 center">
+						<div class="col m3 center">
 				    		<a href="../../view/residentes/agregar.html" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
 						</div>
-						<div class="col m4 center">
+						<div class="col m3 center">
 				    		<a href="../../view/residentes/eliminar.html" class="waves-effect waves-light btn-large red z-depth-3"><i class="material-icons left">cancel</i>Eliminar</a>
 						</div>
-						<div class="col m4 center">
+						<div class="col m3 center">
 				    		<a href="../../view/residentes/modificar.html" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
+						</div>
+						<div class="col m3 center">
+				    		<a href="../../view/residentes/residentes.php" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">keyboard_arrow_left</i>Regresar</a>
 						</div>
 					</div>
 <?php

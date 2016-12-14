@@ -1,5 +1,4 @@
 <?php
-	<?php
 	session_start();
 	$usuario=$_SESSION['login'];
 	$seguridad = $_SESSION['seguridad'];
@@ -7,7 +6,6 @@
 	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
 	header('Location: ../../index.html');
 	}
-?>
 	$noControl=$_POST['noControl'];
 	include "../../model/conexion.php";
 	$objConex = new Conexion();
@@ -62,10 +60,14 @@
           							<input id="search" type="search" required name="noControl" value="<?php echo $noControl?>">
           							<label for="search" style="font-size: 18px;"><i class="material-icons">search</i> Buscar asignaciones por No. de Ctrl.</label>
           							<i class="material-icons">close</i>
-
         						</div>
       						</form>
       					</div>
+					</div>
+					<div class="row">
+						<div class="col m12 center">
+					    	<a href="../../view/relaciones/relaciones.php" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">keyboard_arrow_left</i>Regresar</a>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col m12">

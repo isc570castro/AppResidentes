@@ -65,7 +65,7 @@
 					    		<a target="_bank" class="waves-effect waves-light btn-large blue z-depth-3" href="reportes/reporteSesiones.php?idProyecto=<?php echo $idProyecto; ?>"><i class="material-icons left">description</i>Reporte</a>
 							</div>
 							<div class="col m4 center">
-					    		<a href="concluir.php?idProyecto=<?php echo $idProyecto;?>" class="waves-effect waves-light btn-large yellow darken-2 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
+					    		<a href="concluir.php?idProyecto=<?php echo $idProyecto;?>" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">done</i>Concluir</a>
 							</div>
 					    </div>
 						

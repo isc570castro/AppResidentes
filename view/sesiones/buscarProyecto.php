@@ -61,10 +61,14 @@
           							<input id="search" type="search" required name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
           							<label for="search"  style="font-size: 20px;"><i class="material-icons">search</i> Buscar por proyectos</label>
           							<i class="material-icons">close</i>
-
         						</div>
       						</form>
       					</div>
+					</div>
+					<div class="row">
+						<div class="col m12 center">
+					    	<a href="../../view/sesiones/sesiones.php" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">keyboard_arrow_left</i>Regresar</a>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col m12">

@@ -64,14 +64,11 @@ $sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto LIKE '%$nombrePr
         						</div>
       						</form>
       					</div>
-						<div class="col m4 center">
+						<div class="col m6 center">
 				    		<a href="../../view/proyectos/agregar.html" class="waves-effect waves-light btn-large green accent-3 z-depth-3"><i class="material-icons left">add</i>Agregar</a>
 						</div>
-						<div class="col m4 center">
-				    		<a href="../../view/proyectos/eliminar.php" class="waves-effect waves-light btn-large red z-depth-3"><i class="material-icons left">cancel</i>Eliminar</a>
-						</div>
-						<div class="col m4 center">
-				    		<a href="../../view/proyectos/modificar.php" class="waves-effect waves-light btn-large blue z-depth-3"><i class="material-icons left">cached</i>Modificar</a>
+						<div class="col m6 center">
+				    		<a href="../../view/proyectos/proyectos.php" class="waves-effect waves-light btn-large yellow darken-1 z-depth-3"><i class="material-icons left">keyboard_arrow_left</i>Regresar</a>
 						</div>
 					</div>
 					<div class="row">

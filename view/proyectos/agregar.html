@@ -151,12 +151,12 @@
 					      			<h5>Dirección</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="calle" required>
-						         	<label for="a" data-error="Solo se aceptan letras">Calle</label>
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]+" length="15" maxlength="15" class="validate" name="calle" required>
+						         	<label for="a" data-error="Hay caracteres inválidos en este campo">Calle</label>
 					        	</div>
 					        	<div class="input-field col m1">
 					          		<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="numero" required>
-					          		<label for="a">Número</label>
+					          		<label for="a" data-error="Solo se aceptan numeros">Número</label>
 					        	</div>
 					        	<div class="input-field col m4">
 					          		<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="15" maxlength="15" class="validate" name="colonia" required>
@@ -164,7 +164,7 @@
 					        	</div>
 					        	<div class="input-field col m1">
 					          		<input id="a" type="text" pattern="[0-9]+" length="5" maxlength="5" class="validate" name="cp" required>
-					          		<label for="a">C.P.</label>
+					          		<label for="a" data-error="Solo se aceptan numeros">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -173,6 +173,7 @@
 					      		</div>
 						        <div class="input-field col m10">
 						        	<input id="a" type="text" pattern="[0-9]+" length="15" maxlength="15" class="validate" name="telefono">
+						        	<label for="a" data-error="Solo se aceptan numeros"></label>
 					        	</div>
 					      	</div>
   							<a class="waves-effect waves-light btn red right" href="proyectos.html" type="reset">Cancelar</a>
