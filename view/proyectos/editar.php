@@ -77,7 +77,8 @@
 					      			<h5>Nombre del proyecto</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="nombreProyecto" value="<?php echo $nombreProyecto; ?>">
+						        	<input id="first_name" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreProyecto" value="<?php echo $nombreProyecto; ?>" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -85,7 +86,8 @@
 					      			<h5>Asesor externo</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="asesorExterno" value="<?php echo $asesorExterno; ?>">
+						        	<input id="first_name" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorExterno" value="<?php echo $asesorExterno; ?>" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -93,7 +95,8 @@
 					      			<h5>Asesor interno</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="asesorInterno" value="<?php echo $asesorInterno; ?>">
+						        	<input id="first_name" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="asesorInterno" value="<?php echo $asesorInterno; ?>" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      		<h4><i class="material-icons left" style="font-size: 40px;">date_range</i>Periodo del proyecto</h4>
@@ -120,7 +123,7 @@
     								</select>
 					        	</div>
 								<div class="input-field col m5">
-						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearInicio" required value="<?php echo $rows['yearInicio']?>">
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearInicio" required value="<?php echo $rows['yearInicio']?>" required>
 						         	<label for="a" data-error="Solo se aceptan numeros">Año de inicio</label>
 					        	</div>
 					      	</div>
@@ -146,7 +149,7 @@
     								</select>
 					        	</div>
 								<div class="input-field col m5">
-						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearFin" required value="<?php echo $rows['yearFin']?>">
+						        	<input id="a" type="text" pattern="[0-9]+" length="4" maxlength="4" class="validate" name="yearFin" required value="<?php echo $rows['yearFin']?>" required>
 						         	<label for="a" data-error="Solo se aceptan numeros">Año de fin</label>
 					        	</div>
 					      	</div>
@@ -157,7 +160,8 @@
 					      			<h5>Nombre</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="nombreEmpresa" value="<?php echo $nombreEmpresa; ?>">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="nombreEmpresa" value="<?php echo $nombreEmpresa; ?>" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					    	<div class="row">
@@ -165,7 +169,8 @@
 					      			<h5>Dueño</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="text" class="validate" name="duenoEmpresa" value="<?php echo $duenoEmpresa; ?>">
+						        	<input id="a" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" length="45" maxlength="45" class="validate" name="duenoEmpresa" value="<?php echo $duenoEmpresa; ?>" required>
+						        	<label for="a" data-error="Solo se aceptan letras"></label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -173,20 +178,20 @@
 					      			<h5>Dirección</h5>
 					      		</div>
 						        <div class="input-field col m4">
-						        	<input id="first_name" type="text" class="validate" name="calle" value="<?php echo $calle; ?>">
-						         	<label for="first_name">Calle</label>
+						        	<input id="first_name" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]+" length="15" maxlength="15" class="validate" name="calle" value="<?php echo $calle; ?>" required>
+						         	<label for="first_name" data-error="Hay caracteres inválidos en este campo">Calle</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="number" class="validate" name="numero" value="<?php echo $numero; ?>">
-					          		<label for="last_name">Número</label>
+					          		<input id="last_name" type="text" pattern="[0-9]+" class="validate" name="numero" value="<?php echo $numero; ?>" required>
+					          		<label for="last_name" data-error="Solo se aceptan numeros">Número</label>
 					        	</div>
 					        	<div class="input-field col m4">
-					          		<input id="last_name" type="text" class="validate" name="colonia" value="<?php echo $colonia; ?>">
-					          		<label for="last_name">Colonia</label>
+					          		<input id="last_name" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+" class="validate" name="colonia" value="<?php echo $colonia; ?>" required>
+					          		<label for="last_name" data-error="Solo se aceptan letras">Colonia</label>
 					        	</div>
 					        	<div class="input-field col m1">
-					          		<input id="last_name" type="text" class="validate" name="cp" value="<?php echo $cp; ?>">
-					          		<label for="last_name">C.P.</label>
+					          		<input id="last_name" type="text" pattern="[0-9]+" class="validate" name="cp" value="<?php echo $cp; ?>" required>
+					          		<label for="last_name" data-error="Solo se aceptan numeros">C.P.</label>
 					        	</div>
 					      	</div>
 					      	<div class="row">
@@ -194,7 +199,7 @@
 					      			<h5>Teléfono</h5>
 					      		</div>
 						        <div class="input-field col m10">
-						        	<input id="first_name" type="number" class="validate" name="telefono" value="<?php echo $telefono; ?>">
+						        	<input id="first_name" type="text" pattern="[0-9]+" length="15" maxlength="15" class="validate" name="telefono" value="<?php echo $telefono; ?>" required>
 					        	</div>
 					      	</div>
 					      	<div class="row">

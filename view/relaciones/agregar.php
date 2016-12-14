@@ -1,5 +1,4 @@
 <?php
-	<?php
 	session_start();
 	$usuario=$_SESSION['login'];
 	$seguridad = $_SESSION['seguridad'];
