@@ -4,7 +4,7 @@ $usuario = $_SESSION['login'];
 $seguridad = $_SESSION['seguridad'];
 if (!isset($seguridad)) {
 	echo "<SCRIPT TYPE='text/javascript'> alert('Sin acceso'); </SCRIPT>";
-	header ('Location: index.php');
+	header('Location: index.html');
 }
 echo 	"<script type='text/javascript'>
 		alert('Hasta luego ".$usuario."');
