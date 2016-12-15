@@ -45,7 +45,7 @@ $sql = mysql_query("SELECT * FROM proyecto WHERE nombreProyecto LIKE '%$nombrePr
         		<li class="active"><a href="../../view/proyectos/proyectos.php"><i class="material-icons left">business_center</i>Proyectos</a></li>
         		<li><a href="../../view/relaciones/relaciones.php"><i class="material-icons left">repeat</i>Asignaciones</a></li>
         		<li><a href="../../view/sesiones/sesiones.php"><i class="material-icons left">date_range</i>Sesiones</a></li>
-        		<li><a href="#"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
+        		<li><a href="../../controller/logout.php"><i class="material-icons right">directions_run</i>Cerrar sesión</a></li>
       		</ul>
     	</div>
   	</nav>

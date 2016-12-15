@@ -3,7 +3,7 @@
 	$usuario=$_SESSION['login'];
 	$seguridad = $_SESSION['seguridad'];
 	if (!isset($seguridad)) {
-	echo "<scrit type='text/javascript'> alert('Sin acceso'); </script>";
+	echo "<script type='text/javascript'> alert('Sin acceso'); </script>";
 	header('Location: ../index.html');
 	}
 	include "../model/conexion.php";
